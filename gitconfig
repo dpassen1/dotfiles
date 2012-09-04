@@ -1,0 +1,19 @@
+[user]
+  name = Derek Passen
+  email = dpassen@gmail.com
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  fu = reset --hard
+  sb = shortlog -s -n
+  get = reset --hard
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  yep = !git pull --rebase && git remote prune origin
+
+[core]
+  editor = /Applications/MacVim.app/Contents/MacOS/Vim
+
+[github]
+	user = dpassen1
