@@ -9,6 +9,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'git://git.wincent.com/command-t.git' 
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xlevus/vim-web-indent'
+Bundle 'vim-scripts/VimClojure'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG 
