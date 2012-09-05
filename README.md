@@ -1,4 +1,4 @@
-dotFiles
+dotfiles
 ========
 
 Everyone else is doing it
