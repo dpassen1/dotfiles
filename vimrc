@@ -10,6 +10,7 @@ Bundle 'git://git.wincent.com/command-t.git'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'xlevus/vim-web-indent'
 Bundle 'vim-scripts/VimClojure'
+Bundle 'hynek/vim-python-pep8-indent'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG 
