@@ -11,6 +11,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'xlevus/vim-web-indent'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'hynek/vim-python-pep8-indent'
+Bundle 'myusuf3/numbers.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG 
@@ -37,11 +38,13 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+set number
 set shell=bash
 map Y y$
 
 let mapleader = ","
 map <leader><leader> :CommandTFlush<cr>\|:CommandT<cr>
+nnoremap <F3> :NumbersToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
