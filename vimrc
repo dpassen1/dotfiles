@@ -51,5 +51,5 @@ nnoremap <F3> :NumbersToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
-map <leader>v :view %%
+map <leader>v :vsp %%
 
