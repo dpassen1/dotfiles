@@ -6,9 +6,9 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
-Bundle 'git://git.wincent.com/command-t.git' 
+Bundle 'kien/ctrlp.vim'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'xlevus/vim-web-indent'
+Bundle 'greatghoul/vim-web-indent'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'myusuf3/numbers.vim'
@@ -43,7 +43,7 @@ set shell=bash
 map Y y$
 
 let mapleader = ","
-map <leader><leader> :CommandTFlush<cr>\|:CommandT<cr>
+nnoremap <silent> <leader><leader> :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap <F3> :NumbersToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
