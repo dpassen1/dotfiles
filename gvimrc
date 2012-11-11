@@ -4,6 +4,6 @@ if has("gui_running")
     set guioptions=e-t
 endif
 
-colorscheme jellybeans
+colorscheme elrodeo 
 
 set showtabline=2

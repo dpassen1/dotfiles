@@ -12,6 +12,7 @@ Bundle 'greatghoul/vim-web-indent'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'chmllr/vim-colorscheme-elrodeo'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG 
