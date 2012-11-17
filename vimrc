@@ -13,6 +13,7 @@ Bundle 'vim-scripts/VimClojure'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'chmllr/vim-colorscheme-elrodeo'
+Bundle 'vim-scripts/AutoClose'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG 
@@ -54,3 +55,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :vsp %%
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIMCLOJURE CONFIG 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let vimclojure#HighlightBuiltins=1
+let vimclojure#ParenRainbow=1
