@@ -12,7 +12,7 @@ Bundle 'greatghoul/vim-web-indent'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'croaker/mustang-vim'
+Bundle 'jnurmine/Zenburn'
 Bundle 'vim-scripts/AutoClose'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,6 +21,7 @@ Bundle 'vim-scripts/AutoClose'
 set nocompatible
 filetype indent plugin on
 syntax on
+colorscheme zenburn
 set hidden
 set wildmenu
 set showcmd
