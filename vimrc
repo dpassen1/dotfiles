@@ -47,6 +47,7 @@ map Y y$
 
 let mapleader = ","
 nnoremap <silent> <leader><leader> :ClearCtrlPCache<cr>\|:CtrlP<cr>
+nnoremap <F2> :set invnumber<CR>
 nnoremap <F3> :NumbersToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
