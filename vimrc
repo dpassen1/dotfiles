@@ -11,7 +11,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'greatghoul/vim-web-indent'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'myusuf3/numbers.vim'
 Bundle 'jnurmine/Zenburn'
 Bundle 'vim-scripts/AutoClose'
 
@@ -48,7 +47,6 @@ map Y y$
 let mapleader = ","
 nnoremap <silent> <leader><leader> :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap <F2> :set invnumber<CR>
-nnoremap <F3> :NumbersToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
