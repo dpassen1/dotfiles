@@ -20,6 +20,7 @@ Bundle 'vim-scripts/AutoClose'
 set nocompatible
 filetype indent plugin on
 syntax on
+set t_Co=256
 colorscheme zenburn
 set hidden
 set wildmenu
