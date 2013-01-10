@@ -1,0 +1,20 @@
+[ui]
+username = Derek Passen <dpassen1@gmail.com>
+
+[extensions]
+churn=
+color=
+graphlog=
+hgk=
+fetch=
+mq=
+pager=
+hgext.extdiff=
+
+[pager]
+pager = LESS='FRX' less
+quiet = True
+attend = diff,status,log,qdiff,blame,annotate,pdiff,glog
+
+[extdiff]
+cmd.meld=
