@@ -9,6 +9,7 @@ hgk=
 fetch=
 mq=
 pager=
+rebase=
 hgext.extdiff=
 
 [pager]
@@ -18,3 +19,6 @@ attend = diff,status,log,qdiff,blame,annotate,pdiff,glog
 
 [extdiff]
 cmd.meld=
+
+[alias]
+sb = churn -c
