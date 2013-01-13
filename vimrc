@@ -6,6 +6,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
+Bundle 'phleet/vim-mercenary'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'greatghoul/vim-web-indent'
