@@ -43,7 +43,7 @@ set softtabstop=4
 set expandtab
 set smarttab
 set number
-set shell=bash
+set noscb
 map Y y$
 
 let mapleader = ","
