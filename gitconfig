@@ -12,7 +12,7 @@
   yep = !git pull --rebase && git remote prune origin
 
 [core]
-  editor = /Applications/MacVim.app/Contents/MacOS/Vim
+  editor = vim 
 
 [github]
   user = dpassen1
