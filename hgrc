@@ -9,6 +9,7 @@ hgk=
 fetch=
 mq=
 pager=
+purge=
 rebase=
 hgext.extdiff=
 
