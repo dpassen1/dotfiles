@@ -10,10 +10,11 @@ Bundle 'phleet/vim-mercenary'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'greatghoul/vim-web-indent'
-Bundle 'vim-scripts/VimClojure'
+Bundle 'guns/vim-clojure-static'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jnurmine/Zenburn'
 Bundle 'vim-scripts/AutoClose'
+Bundle 'kien/rainbow_parentheses.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG 
@@ -59,9 +60,10 @@ map <leader>v :vsp %%
 map <leader>s :sp %%
 map <leader>h :sp %%
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIMCLOJURE CONFIG 
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let vimclojure#HighlightBuiltins=1
-let vimclojure#ParenRainbow=1"
+" RAINBOW PARENTHESES 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
