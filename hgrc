@@ -4,8 +4,9 @@ username = Derek Passen <dpassen1@gmail.com>
 [extensions]
 churn=
 color=
-graphlog=
 fetch=
+graphlog=
+histedit=
 mq=
 pager=
 purge=
