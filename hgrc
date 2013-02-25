@@ -23,5 +23,5 @@ cmd.meld=
 
 [alias]
 bm = bookmark
-lg = log -G --style compact
+lg = log -G --style compact -b .
 sb = churn -c
