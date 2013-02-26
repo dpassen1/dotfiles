@@ -46,6 +46,7 @@ set smarttab
 set number
 set noscb
 map Y y$
+autocmd VimResized * :wincmd =
 
 let mapleader = ","
 nnoremap <silent> <leader><leader> :ClearCtrlPCache<cr>\|:CtrlP<cr>
