@@ -11,15 +11,11 @@ mq=
 pager=
 purge=
 rebase=
-hgext.extdiff=
 
 [pager]
 pager = LESS='FRX' less
 quiet = True
 attend = diff,status,log,qdiff,blame,annotate,pdiff,glog,lg
-
-[extdiff]
-cmd.meld=
 
 [alias]
 bm = bookmark
