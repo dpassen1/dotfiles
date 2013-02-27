@@ -11,6 +11,7 @@ mq=
 pager=
 purge=
 rebase=
+hgshelve = ~/.hgext/hgshelve.py
 
 [pager]
 pager = LESS='FRX' less
