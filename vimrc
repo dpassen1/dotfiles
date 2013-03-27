@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VUNDLE 
+" VUNDLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -17,7 +17,7 @@ Bundle 'vim-scripts/AutoClose'
 Bundle 'kien/rainbow_parentheses.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NORMAL CONFIG 
+" NORMAL CONFIG
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype indent plugin on
@@ -52,6 +52,7 @@ let mapleader = ","
 nnoremap <silent> <leader><leader> :ClearCtrlPCache<cr>\|:CtrlP<cr>
 nnoremap <F2> :set invnumber<CR>
 
+autocmd BufWritePre * :%s/\s\+$//e
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -62,7 +63,7 @@ map <leader>s :sp %%
 map <leader>h :sp %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RAINBOW PARENTHESES 
+" RAINBOW PARENTHESES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
