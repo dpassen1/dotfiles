@@ -8,11 +8,11 @@
   co = checkout
   fu = reset --hard
   sb = shortlog -s -n
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   yep = !git pull --rebase && git remote prune origin
 
 [core]
-  editor = vim 
+  editor = vim
 
 [github]
   user = dpassen1
