@@ -8,6 +8,7 @@ setopt share_history
 
 bindkey -e
 bindkey '^R' history-incremental-search-backward
+bindkey "^[[3~" delete-char
 
 zstyle :compinstall filename '/Users/derek/.zshrc'
 zstyle ':completion:*' menu select
