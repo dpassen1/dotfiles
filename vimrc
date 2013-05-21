@@ -46,6 +46,7 @@ set expandtab
 set smarttab
 set number
 set noscb
+set colorcolumn=80
 map Y y$
 autocmd VimResized * :wincmd =
 
