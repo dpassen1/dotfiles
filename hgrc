@@ -18,7 +18,12 @@ pager = LESS='FRX' less
 quiet = True
 attend = diff,status,log,qdiff,blame,annotate,pdiff,glog,lg
 
+[color]
+custom.rev = red
+custom.date = green
+custom.author = blue
+
 [alias]
 bm = bookmark
-lg = log -G --style compact -b .
+lg = log -G --template "{label('custom.rev',node|short)} - {desc|firstline} ({label('custom.date',date|age)}) {label('custom.author',author|user)}" -b .
 sb = churn -c
