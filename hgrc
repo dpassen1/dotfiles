@@ -25,5 +25,5 @@ custom.author = blue
 
 [alias]
 bm = bookmark
-lg = log -G --template "{label('custom.rev',node|short)} - {desc|firstline} ({label('custom.date',date|age)}) {label('custom.author',author|user)}" -b .
+lg = log -G --template "{label('custom.rev',node|short)} - {if(bookmarks,'({bookmarks}) ')}{desc|firstline} ({label('custom.date',date|age)}) {label('custom.author',author|user)}" -b .
 sb = churn -c
