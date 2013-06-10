@@ -20,10 +20,11 @@ attend = diff,status,log,qdiff,blame,annotate,pdiff,glog,lg
 
 [color]
 custom.rev = red
+custom.bm = yellow
 custom.date = green
 custom.author = blue
 
 [alias]
 bm = bookmark
-lg = log -G --template "{label('custom.rev',node|short)} - {if(bookmarks,'({bookmarks}) ')}{desc|firstline} ({label('custom.date',date|age)}) {label('custom.author',author|person)}" -b .
+lg = log -G --template "{label('custom.rev',node|short)} - {label('custom.bm',bookmarks)}{if(bookmarks,' ')}{desc|firstline} ({label('custom.date',date|age)}) {label('custom.author',author|person)}" -b .
 sb = churn -c
