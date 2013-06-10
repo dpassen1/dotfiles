@@ -7,8 +7,8 @@ for dir in `ls -d */`; do
         echo "Mercurial: $dir"
         if [ -z "`hg status -admrn`" ]; then
             echo "Clean. Pulling ..."
-            hg pull -u 1>/dev/null
-        fi  
+            hg pull --rebase 1>/dev/null
+        fi
         hg lg | head -n 2
         echo
     elif [ -d ".git" ]; then
@@ -16,9 +16,9 @@ for dir in `ls -d */`; do
         if [ -z "`git status --short`" ]; then
             echo "Clean. Pulling ..."
             git pull --rebase 1>/dev/null
-        fi  
+        fi
         git lg | head -n 1
         echo
-    fi  
+    fi
     cd ..
 done
