@@ -1,5 +1,6 @@
 [ui]
 username = Derek Passen <dpassen1@gmail.com>
+merge = internal:merge
 
 [extensions]
 churn=
