@@ -9,7 +9,7 @@ for dir in `ls -d */`; do
             echo "Clean. Pulling ..."
             hg pull --rebase 1>/dev/null
         fi
-        hg lg | head -n 2
+        hg lg | head -n 1
         echo
     elif [ -d ".git" ]; then
         echo "Git: $dir"
