@@ -48,6 +48,8 @@ set number
 set noscb
 set colorcolumn=80
 map Y y$
+map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>_
 autocmd VimResized * :wincmd =
 
 let mapleader = ","
