@@ -1,5 +1,7 @@
 export PATH=$PATH:~/.bin/
 
+alias tmux='tmux -2'
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
