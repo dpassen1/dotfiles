@@ -14,7 +14,6 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'vim-scripts/paredit.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jnurmine/Zenburn'
-Bundle 'vim-scripts/AutoClose'
 Bundle 'kien/rainbow_parentheses.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
