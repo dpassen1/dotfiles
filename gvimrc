@@ -1,7 +1,7 @@
 if has("gui_gtk2")
-    set guifont=Inconsolata\ dz\ 13
+    set guifont=Panic\ Sans\ 11
 else
-    set guifont=Inconsolata\ dz:h13
+    set guifont=Panic\ Sans:h11
 end
 
 if has("gui_running")
