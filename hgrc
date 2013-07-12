@@ -19,6 +19,9 @@ pager = LESS='FRX' less
 quiet = True
 attend = diff,status,log,qdiff,blame,annotate,pdiff,glog,lg
 
+[diff]
+git = True
+
 [color]
 custom.rev = red
 custom.bm = yellow
