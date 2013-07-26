@@ -1,4 +1,4 @@
-export PATH=$PATH:~/.bin/
+export PATH=$PATH:~/.bin
 
 alias tmux='tmux -2'
 
