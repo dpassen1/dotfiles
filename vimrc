@@ -15,6 +15,7 @@ Bundle 'vim-scripts/paredit.vim'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'jnurmine/Zenburn'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'scrooloose/nerdcommenter'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG
