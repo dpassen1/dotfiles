@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 clear
-for dir in `ls -d */`; do
+for dir in `ls -d */ | sort -f`; do
     cd $dir
     if [ -d ".hg" ]; then
         echo "Mercurial: $dir"
