@@ -17,7 +17,7 @@ for dir in `ls -d */ | sort -f`; do
             echo "Clean. Pulling ..."
             git pull --rebase 1>/dev/null
         fi
-        git lg -n 1
+        git lg | head -n 1
         echo
     fi
     cd ..
