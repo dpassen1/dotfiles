@@ -1,5 +1,6 @@
 [ui]
 username = Derek Passen <dpassen1@gmail.com>
+editor = vim
 merge = internal:merge
 
 [extensions]
@@ -12,6 +13,7 @@ mq=
 pager=
 purge=
 rebase=
+record=
 hgshelve = ~/.hgext/hgshelve.py
 
 [pager]
