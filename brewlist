@@ -1,3 +1,4 @@
+apple-gcc42
 autoconf
 automake
 enscript
@@ -5,8 +6,10 @@ fuse4x
 fuse4x-kext
 gdbm
 gettext
+ghc
 git
 glib
+haskell-platform
 libevent
 libffi
 libtool
