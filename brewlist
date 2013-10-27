@@ -9,6 +9,7 @@ gettext
 ghc
 git
 glib
+gradle
 haskell-platform
 libevent
 libffi
