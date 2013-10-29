@@ -5,7 +5,7 @@ for dir in `ls -d */ | sort -f`; do
     cd $dir
     if [ -d ".hg" ]; then
         echo "Mercurial: ${dir%/}"
-        if [ -z "`hg status -admrn`" ]; then
+        if [ -z "`hg status -admrn`" ] && [ "`hg showconfig | awk -F "=" '/default/ {print $2;}'`" ]; then
             echo "Clean. Pulling ..."
             hg pull --rebase 1>/dev/null
         fi
