@@ -13,7 +13,7 @@ for dir in `ls -d */ | sort -f`; do
         echo
     elif [ -d ".git" ]; then
         echo "Git: ${dir%/}"
-        if [ -z "`git status --short`" ]; then
+        if [ -z "`git status --short`" ] && [ "`git remote`" ]; then
             echo "Clean. Pulling ..."
             git pull --rebase 1>/dev/null
         fi
