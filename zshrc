@@ -33,7 +33,3 @@ PROMPT='[%n@%m] %2d${vcs_info_msg_0_}: '
 chpwd () {
     print -Pn "\e]2; %~/ \a"
 }
-
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
