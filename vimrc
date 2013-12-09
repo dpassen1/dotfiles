@@ -48,6 +48,7 @@ set smarttab
 set number
 set noscb
 set colorcolumn=80
+set splitright
 map Y y$
 map <C-H> <C-W>h<C-W>_
 map <C-L> <C-W>l<C-W>_
