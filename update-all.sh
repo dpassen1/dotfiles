@@ -7,7 +7,7 @@ for dir in `ls -d */ | sort -f`; do
         echo "Mercurial: ${dir%/}"
         if [ -z "`hg status -admrn`" ] && [ "`hg showconfig | awk -F "=" '/default/ {print $2;}'`" ]; then
             echo "Clean. Pulling ..."
-            hg pull --rebase 1>/dev/null
+            hg pull --rebase > /dev/null 2>&1
         fi
         hg lg | head -n 1
         echo
@@ -15,7 +15,7 @@ for dir in `ls -d */ | sort -f`; do
         echo "Git: ${dir%/}"
         if [ -z "`git status --short`" ] && [ "`git remote`" ]; then
             echo "Clean. Pulling ..."
-            git pull --rebase 1>/dev/null
+            git pull --rebase > /dev/null 2>&1
         fi
         git lg | head -n 1
         echo
