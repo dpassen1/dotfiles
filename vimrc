@@ -47,7 +47,8 @@ set expandtab
 set smarttab
 set number
 set noscb
-set colorcolumn=80
+highlight ColorColumn ctermbg=black
+call matchadd('ColorColumn', '\%>80v.\+', 100)
 set splitright
 map Y y$
 map <C-H> <C-W>h<C-W>_
