@@ -1,4 +1,6 @@
 apple-gcc42
+autoconf
+chruby
 enscript
 gdbm
 gettext
@@ -9,8 +11,10 @@ haskell-platform
 libevent
 maven
 mercurial
+openssl
 pcre
 pkg-config
+ruby-build
 tmux
 tree
 wget
