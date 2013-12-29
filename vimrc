@@ -85,3 +85,11 @@ let g:clojure_fuzzy_indent_patterns = "with.*,def.*,let.*"
 let g:clojure_fuzzy_indent_patterns .= ",GET,POST,PUT,PATCH,DELETE,context"          " Compojure
 let g:clojure_fuzzy_indent_patterns .= ",select.*,insert.*,update.*,delete.*,with.*" " Korma
 let g:clojure_fuzzy_indent_patterns .= ",fact,facts"                                 " Midje
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CTRLP
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'target$',
+  \ 'file': '\v\.(class)$',
+  \ }
