@@ -11,6 +11,7 @@ haskell-platform
 libevent
 maven
 mercurial
+nvm
 openssl
 pcre
 pkg-config
