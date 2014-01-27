@@ -35,4 +35,5 @@ chpwd () {
 }
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
+chruby 1.9.3
 source $(brew --prefix nvm)/nvm.sh
