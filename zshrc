@@ -1,6 +1,7 @@
 export PATH=/usr/local/bin:/usr/local/sbin:~/.bin:$PATH
 
 alias tmux='tmux -2'
+alias tmux-select='tmux attach -t `tmux ls | selecta | cut -f1 -d:`'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
