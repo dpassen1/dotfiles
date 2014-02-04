@@ -17,5 +17,6 @@ pkg-config
 ruby-build
 tmux
 tree
+watch
 wget
 zsh
