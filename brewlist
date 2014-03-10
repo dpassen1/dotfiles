@@ -5,6 +5,7 @@ gdbm
 gettext
 ghc
 git
+gmp
 gradle
 haskell-platform
 libevent
