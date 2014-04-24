@@ -1,7 +1,8 @@
-apple-gcc42
 autoconf
 chruby
+cloog
 emacs
+gcc
 gdbm
 gettext
 ghc
@@ -11,10 +12,13 @@ gnupg
 gnutls
 gradle
 haskell-platform
+isl
 libevent
+libmpc
 libtasn1
 maven
 mercurial
+mpfr
 nettle
 nvm
 openssl
