@@ -1,5 +1,3 @@
-autoconf
-chruby
 cloog
 emacs
 gcc
@@ -21,10 +19,8 @@ mercurial
 mpfr
 nettle
 nvm
-openssl
 pcre
 pkg-config
-ruby-build
 tmux
 tree
 watch
