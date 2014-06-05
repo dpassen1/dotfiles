@@ -19,6 +19,7 @@ mercurial
 mpfr
 nettle
 nvm
+openssl
 pcre
 pkg-config
 tmux
