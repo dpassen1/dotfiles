@@ -22,6 +22,7 @@ nvm
 openssl
 pcre
 pkg-config
+selecta
 tmux
 tree
 watch
