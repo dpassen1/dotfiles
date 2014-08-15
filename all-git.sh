@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-for dir in `ls -d */ | sort -f`; do
+for dir in $(ls -d */ | sort -f); do
     cd $dir
     if [ -d ".git" ]; then
         echo "Git: ${dir%/}"
