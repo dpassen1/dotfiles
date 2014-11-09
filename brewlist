@@ -18,6 +18,7 @@ maven
 mercurial
 mpfr
 nettle
+nmap
 nvm
 openssl
 pcre
@@ -28,4 +29,5 @@ tree
 unrar
 watch
 wget
+xz
 zsh
