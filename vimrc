@@ -1,24 +1,26 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VUNDLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'phleet/vim-mercenary'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'greatghoul/vim-web-indent'
-Bundle 'guns/vim-clojure-static'
-Bundle 'vim-scripts/paredit.vim'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'xuhdev/indent-java.vim'
-Bundle 'akhaku/vim-java-unused-imports'
-Bundle 'jnurmine/Zenburn'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'mhinz/vim-signify'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'phleet/vim-mercenary'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'greatghoul/vim-web-indent'
+Plugin 'guns/vim-clojure-static'
+Plugin 'vim-scripts/paredit.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'xuhdev/indent-java.vim'
+Plugin 'akhaku/vim-java-unused-imports'
+Plugin 'jnurmine/Zenburn'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mhinz/vim-signify'
+
+call vundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NORMAL CONFIG
