@@ -19,6 +19,7 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mhinz/vim-signify'
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 
