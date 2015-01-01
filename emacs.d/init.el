@@ -15,7 +15,8 @@
                       zenburn-theme
                       better-defaults
                       rainbow-delimiters
-                      auto-complete))
+                      auto-complete
+                      expand-region))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -63,3 +64,7 @@
 
 ;; Disable idle-highlight-mode from starter-kit
 (remove-hook 'prog-mode-hook 'idle-highlight-mode)
+
+;; Expand Region
+(require 'expand-region)
+(global-set-key "\C-@" 'er/expand-region)
