@@ -46,6 +46,11 @@
 (add-hook 'clojure-mode-hook 'subword-mode)
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
+;; cider-mode configuration
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-repl-mode-hook 'subword-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+
 ;; line numbering
 (global-linum-mode t)
 (setq linum-format "%d ")
