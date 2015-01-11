@@ -42,9 +42,10 @@
 (require 'cider)
 
 ;; clojure-mode configuration
-(add-hook 'clojure-mode-hook 'paredit-mode)
-(add-hook 'clojure-mode-hook 'subword-mode)
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook    'clojure-mode-hook 'paredit-mode)
+(add-hook    'clojure-mode-hook 'subword-mode)
+(add-hook    'clojure-mode-hook 'rainbow-delimiters-mode)
+(remove-hook 'clojure-mode-hook 'esk-pretty-fn)
 
 ;; cider-mode configuration
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
