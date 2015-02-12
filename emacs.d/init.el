@@ -10,7 +10,6 @@
                       starter-kit-bindings
                       starter-kit-eshell
                       clojure-mode
-                      clojure-test-mode
                       cider
                       zenburn-theme
                       better-defaults
@@ -38,8 +37,8 @@
 
 ;; ready clojure setup
 (require 'clojure-mode)
-(require 'clojure-test-mode)
 (require 'cider)
+(require 'cider-test)
 
 ;; clojure-mode configuration
 (add-hook    'clojure-mode-hook 'paredit-mode)
