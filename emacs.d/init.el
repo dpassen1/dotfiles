@@ -15,7 +15,8 @@
                       better-defaults
                       rainbow-delimiters
                       auto-complete
-                      expand-region))
+                      expand-region
+                      multi-term))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -73,3 +74,10 @@
 ;; Expand Region
 (require 'expand-region)
 (global-set-key "\C-@" 'er/expand-region)
+
+;; Multi-Term
+(require 'multi-term)
+(global-set-key (kbd "C-x RET") 'multi-term)
+(add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
+(setq term-bind-key-alist (delete '("C-r" . isearch-backward) term-bind-key-alist))
+(add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history))
