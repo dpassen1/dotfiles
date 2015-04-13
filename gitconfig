@@ -6,10 +6,11 @@
   st = status
   ci = commit
   co = checkout
-  sb = shortlog -sn
   ln = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   lg = !git ln --graph
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  scoreboard = shortlog -sn
+  sb = !git scoreboard
   standup = !git lg --since='yesterday' --author=$(git config user.email)
   su = !git standup
   lasttouched = "!lt() { git branch -r | grep -v ' -> ' | while read branch; do echo $branch; git log --pretty=format:"%cr" $branch -n 1; echo; done; }; lt"
