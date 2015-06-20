@@ -73,7 +73,6 @@
 
 ;; Expand Region
 (require 'expand-region)
-(global-set-key "\C-@" 'er/expand-region)
 
 ;; Multi-Term
 (require 'multi-term)
