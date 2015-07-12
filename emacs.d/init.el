@@ -7,18 +7,22 @@
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(starter-kit
-                      starter-kit-lisp
-                      starter-kit-bindings
-                      starter-kit-eshell
-                      clojure-mode
-                      cider
-                      zenburn-theme
+(defvar my-packages '(auto-complete
                       better-defaults
-                      rainbow-delimiters
-                      auto-complete
+                      cider
+                      clojure-mode
+                      dash
+                      epl
                       expand-region
-                      multi-term))
+                      find-file-in-project
+                      git-commit
+                      magit
+                      multi-term
+                      paredit
+                      queue
+                      rainbow-delimiters
+                      smex
+                      zenburn-theme))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -65,13 +69,13 @@
 ;; trim trailing whitespace on saves
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; clean up whitespace display
+(setq whitespace-style '(face trailing lines-tail tabs))
+
 ;; Scroll only half-pages.
 (require 'view)
 (global-set-key "\C-v"   'View-scroll-half-page-forward)
 (global-set-key "\M-v"   'View-scroll-half-page-backward)
-
-;; Disable idle-highlight-mode from starter-kit
-(remove-hook 'prog-mode-hook 'idle-highlight-mode)
 
 ;; Expand Region
 (require 'expand-region)
@@ -82,3 +86,10 @@
 (add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
 (setq term-bind-key-alist (delete '("C-r" . isearch-backward) term-bind-key-alist))
 (add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history))
+
+;; SMEX
+(require 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
