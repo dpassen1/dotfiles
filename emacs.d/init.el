@@ -43,6 +43,13 @@
 ;; Stop flashing!
 (setq ring-bell-function 'ignore)
 
+;; Paredit in terminal
+(require 'paredit)
+(eval-after-load 'paredit
+    '(progn
+        (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
+        (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)))
+
 ;; ready clojure setup
 (require 'clojure-mode)
 (require 'cider)
