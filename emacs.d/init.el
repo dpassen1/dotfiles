@@ -109,7 +109,6 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-
 ;; cljr-refactor
 (require 'clj-refactor)
 
@@ -119,3 +118,7 @@
     (cljr-add-keybindings-with-prefix "C-c C-m"))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+
+;; magit
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
