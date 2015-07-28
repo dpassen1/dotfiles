@@ -3,5 +3,4 @@
                   [lein-cljfmt       "0.2.1"]
                   [lein-kibit        "0.1.2"]
                   [lein-midje        "3.1.3"]
-                  [lein-try          "0.4.3"]
-                  [refactor-nrepl    "1.1.0"]]}}
+                  [lein-try          "0.4.3"]]}}

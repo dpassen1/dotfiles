@@ -10,7 +10,6 @@
 (defvar my-packages '(auto-complete
                       better-defaults
                       cider
-                      clj-refactor
                       clojure-mode
                       dash
                       epl
@@ -108,16 +107,6 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; cljr-refactor
-(require 'clj-refactor)
-
-(defun my-clojure-mode-hook ()
-    (clj-refactor-mode 1)
-    (yas-minor-mode 1) ; for adding require/use/import
-    (cljr-add-keybindings-with-prefix "C-c C-m"))
-
-(add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
 ;; magit
 (require 'magit)
