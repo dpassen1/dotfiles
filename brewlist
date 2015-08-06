@@ -24,6 +24,7 @@ openssl
 p7zip
 pcre
 pkg-config
+planck
 selecta
 tmux
 tree
