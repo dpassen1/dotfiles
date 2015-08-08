@@ -1,11 +1,9 @@
 #!/usr/bin/env sh
 
 for dir in $(ls -d */ | sort -f); do
-    cd $dir
-    if [ -d ".git" ]; then
+    if [ -d "$dir/.git" ]; then
         echo "Git: ${dir%/}"
-        git $@
+        (cd $dir && git $@)
         echo
     fi
-    cd ..
 done
