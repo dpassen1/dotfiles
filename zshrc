@@ -12,6 +12,8 @@ SAVEHIST=1000
 setopt appendhistory
 setopt share_history
 
+setopt interactivecomments
+
 bindkey -e
 bindkey '^R' history-incremental-search-backward
 bindkey "^[[3~" delete-char
