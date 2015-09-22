@@ -4,7 +4,7 @@ alias tmux='tmux -2'
 alias tmux-select='tmux attach -t $(tmux ls | selecta | cut -f1 -d:)'
 
 alias emacs='emacs -nw'
-alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon" | cut -d= -f2 | selecta)'
+alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | selecta)'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
