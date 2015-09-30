@@ -1,7 +1,7 @@
 export PATH=/usr/local/bin:/usr/local/sbin:~/.bin:$PATH
 
 alias tmux='tmux -2'
-alias tmux-select='tmux attach -t $(tmux ls | selecta | cut -f1 -d:)'
+alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} | selecta)'
 
 alias emacs='emacs -nw'
 alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | selecta)'
