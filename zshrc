@@ -1,10 +1,10 @@
 export PATH=/usr/local/bin:/usr/local/sbin:~/.bin:$PATH
 
 alias tmux='tmux -2'
-alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} | selecta)'
+alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} | sort | selecta)'
 
 alias emacs='emacs -nw'
-alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | selecta)'
+alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | sort | selecta)'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
