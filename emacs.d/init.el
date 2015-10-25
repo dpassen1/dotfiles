@@ -7,7 +7,8 @@
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 
-(defvar my-packages '(auto-complete
+(defvar my-packages '(ace-jump-mode
+                      auto-complete
                       better-defaults
                       cider
                       clojure-mode
@@ -111,3 +112,7 @@
 ;; magit
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; ace-jump-mode
+(autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
