@@ -1,7 +1,7 @@
-{:user {:plugins [[cider/cider-nrepl "0.8.2"]
+{:user {:plugins [[cider/cider-nrepl "0.9.1"]
                   [jonase/eastwood   "0.2.1"]
-                  [lein-ancient      "0.6.7"]
+                  [lein-ancient      "0.6.8"]
                   [lein-cljfmt       "0.3.0"]
                   [lein-kibit        "0.1.2"]
-                  [lein-midje        "3.1.3"]
+                  [lein-midje        "3.2"]
                   [lein-try          "0.4.3"]]}}
