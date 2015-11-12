@@ -1,35 +1,85 @@
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
-(defvar my-packages '(ace-jump-mode
-                      auto-complete
-                      better-defaults
-                      cider
-                      clojure-mode
-                      dash
-                      epl
-                      expand-region
-                      find-file-in-project
-                      git-commit
-                      magit
-                      multi-term
-                      paredit
-                      queue
-                      rainbow-delimiters
-                      smex
-                      zenburn-theme))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (package-install p)))
+(eval-when-compile
+  (require 'use-package))
 
-(load-theme 'zenburn t)
+(use-package ace-jump-mode
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-c SPC" . ace-jump-mode))
+
+(use-package better-defaults
+  :ensure t
+  :pin    melpa-stable)
+
+(use-package cider
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :init   (add-hook 'cider-repl-mode-hook 'paredit-mode)
+          (add-hook 'cider-repl-mode-hook 'subword-mode)
+          (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode))
+
+(use-package clojure-mode
+  :ensure t
+  :pin    melpa-stable
+  :mode   (("\\.clj\\'" . clojure-mode)
+           ("\\.edn\\'" . clojure-mode))
+  :init   (add-hook    'clojure-mode-hook 'paredit-mode)
+          (add-hook    'clojure-mode-hook 'subword-mode)
+          (add-hook    'clojure-mode-hook 'rainbow-delimiters-mode)
+          (remove-hook 'clojure-mode-hook 'esk-pretty-fn))
+
+(use-package expand-region
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :bind   ("C-c w" . er/expand-region))
+
+(use-package magit
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-x g" . magit-status))
+
+(use-package multi-term
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :bind   ("C-x RET" . multi-term)
+  :config (add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
+          (setq term-bind-key-alist (delete '("C-r" . isearch-backward) term-bind-key-alist))
+          (add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history)))
+
+(use-package paredit
+  :ensure t
+  :pin    melpa-stable
+  :config (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
+          (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :pin    melpa-stable)
+
+(use-package smex
+  :ensure t
+  :pin    melpa-stable
+  :bind   (("M-x" . smex)
+           ("M-X" . smex-major-mode-commands)
+           ("C-c C-c M-x" .  execute-extended-command)))
+
+(use-package zenburn-theme
+  :ensure t
+  :pin    melpa-stable
+  :config (load-theme 'zenburn t))
 
 ;; Prevent loading screen
 (setq-default inhibit-startup-screen t)
@@ -42,29 +92,6 @@
 
 ;; Stop flashing!
 (setq ring-bell-function 'ignore)
-
-;; Paredit in terminal
-(require 'paredit)
-(eval-after-load 'paredit
-    '(progn
-        (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
-        (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp)))
-
-;; ready clojure setup
-(require 'clojure-mode)
-(require 'cider)
-(require 'cider-test)
-
-;; clojure-mode configuration
-(add-hook    'clojure-mode-hook 'paredit-mode)
-(add-hook    'clojure-mode-hook 'subword-mode)
-(add-hook    'clojure-mode-hook 'rainbow-delimiters-mode)
-(remove-hook 'clojure-mode-hook 'esk-pretty-fn)
-
-;; cider-mode configuration
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-(add-hook 'cider-repl-mode-hook 'subword-mode)
-(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
 
 ;; line numbering
 (global-linum-mode t)
@@ -89,30 +116,5 @@
 
 ;; Scroll only half-pages.
 (require 'view)
-(global-set-key "\C-v"   'View-scroll-half-page-forward)
-(global-set-key "\M-v"   'View-scroll-half-page-backward)
-
-;; Expand Region
-(require 'expand-region)
-
-;; Multi-Term
-(require 'multi-term)
-(global-set-key (kbd "C-x RET") 'multi-term)
-(add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
-(setq term-bind-key-alist (delete '("C-r" . isearch-backward) term-bind-key-alist))
-(add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history))
-
-;; SMEX
-(require 'smex)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; magit
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;; ace-jump-mode
-(autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key "\C-v" 'View-scroll-half-page-forward)
+(global-set-key "\M-v" 'View-scroll-half-page-backward)
