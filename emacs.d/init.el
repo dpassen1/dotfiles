@@ -18,7 +18,7 @@
 
 (use-package better-defaults
   :ensure t
-  :pin    melpa-stable)
+  :pin    melpa)
 
 (use-package cider
   :ensure t
