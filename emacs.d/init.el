@@ -117,3 +117,6 @@
 (require 'view)
 (global-set-key "\C-v" 'View-scroll-half-page-forward)
 (global-set-key "\M-v" 'View-scroll-half-page-backward)
+
+;; Automatically reload changed buffers
+(global-auto-revert-mode t)
