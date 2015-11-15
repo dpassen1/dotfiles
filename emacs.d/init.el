@@ -113,9 +113,6 @@
 ;; clean up whitespace display
 (setq whitespace-style '(face trailing lines-tail tabs))
 
-;; keep backups out of project
-(setq backup-directory-alist `(("." . , (concat user-emacs-directory "backups"))))
-
 ;; Scroll only half-pages.
 (require 'view)
 (global-set-key "\C-v" 'View-scroll-half-page-forward)
