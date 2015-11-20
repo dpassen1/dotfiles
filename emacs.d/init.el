@@ -35,10 +35,9 @@
   :pin    melpa-stable
   :mode   (("\\.clj\\'" . clojure-mode)
            ("\\.edn\\'" . clojure-mode))
-  :init   (add-hook    'clojure-mode-hook 'paredit-mode)
-          (add-hook    'clojure-mode-hook 'subword-mode)
-          (add-hook    'clojure-mode-hook 'rainbow-delimiters-mode)
-          (remove-hook 'clojure-mode-hook 'esk-pretty-fn))
+  :init   (add-hook 'clojure-mode-hook 'paredit-mode)
+          (add-hook 'clojure-mode-hook 'subword-mode)
+          (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
 
 (use-package expand-region
   :ensure t
