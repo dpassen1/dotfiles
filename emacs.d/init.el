@@ -16,6 +16,12 @@
   :defer  t
   :bind   ("C-c SPC" . ace-jump-mode))
 
+(use-package align-cljlet
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :bind   ("C-c a" . align-cljlet))
+
 (use-package better-defaults
   :ensure t
   :pin    melpa)
