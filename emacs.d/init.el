@@ -51,6 +51,12 @@
   :defer  t
   :bind   ("C-c w" . er/expand-region))
 
+(use-package find-file-in-repository
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-x M-f" . find-file-in-repository))
+
 (use-package magit
   :ensure t
   :pin    melpa-stable
