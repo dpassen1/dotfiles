@@ -33,8 +33,9 @@
   :init   (add-hook 'cider-repl-mode-hook 'paredit-mode)
           (add-hook 'cider-repl-mode-hook 'subword-mode)
           (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-  :config (setq cider-repl-history-file (let ((default-directory (nrepl-project-directory-for (nrepl-current-dir))))
-                                          (expand-file-name ".cider-repl-history"))))
+  :config (setq cider-repl-history-file        (let ((default-directory (clojure-project-dir (cider-current-dir))))
+                                                 (expand-file-name ".cider-repl-history"))
+                cider-prompt-save-file-on-load 'always-save))
 
 (use-package clojure-mode
   :ensure t
