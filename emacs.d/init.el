@@ -1,6 +1,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(setq package-pinned-packages '((use-package . "melpa-stable")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
