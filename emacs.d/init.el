@@ -132,3 +132,6 @@
 
 ;; Automatically reload changed buffers
 (global-auto-revert-mode t)
+
+;; I just tripled my productivity
+(defalias 'yes-or-no-p 'y-or-n-p)
