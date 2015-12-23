@@ -23,6 +23,9 @@
   :defer  t
   :bind   ("C-c a" . align-cljlet))
 
+(use-package autorevert
+  :config (global-auto-revert-mode t))
+
 (use-package better-defaults
   :ensure t
   :pin    melpa)
@@ -59,6 +62,14 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
+(use-package linum
+  :init   (global-linum-mode t)
+  :config (defadvice linum-update-window (around linum-dynamic activate)
+            (let* ((w (length (number-to-string
+                   (count-lines (point-min) (point-max)))))
+                   (linum-format (concat "%" (number-to-string (max 3 w)) "d ")))
+              ad-do-it)))
+
 (use-package magit
   :ensure t
   :pin    melpa-stable
@@ -91,6 +102,16 @@
            ("M-X" . smex-major-mode-commands)
            ("C-c C-c M-x" .  execute-extended-command)))
 
+(use-package view
+  :config (global-set-key "\C-v" 'View-scroll-half-page-forward)
+          (global-set-key "\M-v" 'View-scroll-half-page-backward))
+
+(use-package whitespace
+  :diminish global-whitespace-mode
+  :init     (global-whitespace-mode t)
+            (setq whitespace-line-column 80)
+            (setq whitespace-style '(face trailing lines-tail tabs)))
+
 (use-package zenburn-theme
   :ensure t
   :pin    melpa-stable
@@ -108,31 +129,8 @@
 ;; Stop flashing!
 (setq ring-bell-function 'ignore)
 
-;; line numbering
-(global-linum-mode t)
-(defadvice linum-update-window (around linum-dynamic activate)
-  (let* ((w (length (number-to-string
-                     (count-lines (point-min) (point-max)))))
-         (linum-format (concat "%" (number-to-string (max 2 w)) "d ")))
-    ad-do-it))
-
-;; 80 characters
-(global-whitespace-mode t)
-(setq whitespace-line-column 80)
-
 ;; trim trailing whitespace on saves
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; clean up whitespace display
-(setq whitespace-style '(face trailing lines-tail tabs))
-
-;; Scroll only half-pages.
-(require 'view)
-(global-set-key "\C-v" 'View-scroll-half-page-forward)
-(global-set-key "\M-v" 'View-scroll-half-page-backward)
-
-;; Automatically reload changed buffers
-(global-auto-revert-mode t)
 
 ;; I just tripled my productivity
 (defalias 'yes-or-no-p 'y-or-n-p)
