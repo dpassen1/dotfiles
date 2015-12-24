@@ -1,4 +1,5 @@
 aspell
+boot-clj
 cabal-install
 cloog
 emacs
