@@ -106,6 +106,13 @@
   :config (global-set-key "\C-v" 'View-scroll-half-page-forward)
           (global-set-key "\M-v" 'View-scroll-half-page-backward))
 
+(use-package web-mode
+  :ensure t
+  :pin    melpa-stable
+  :mode   ("\\.html?\\'" . web-mode)
+  :config (setq web-mode-enable-auto-closing t)
+          (setq web-mode-markup-indent-offset 2))
+
 (use-package whitespace
   :diminish global-whitespace-mode
   :init     (global-whitespace-mode t)
