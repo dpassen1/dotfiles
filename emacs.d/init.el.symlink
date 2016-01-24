@@ -15,7 +15,7 @@
   :ensure t
   :pin    melpa-stable
   :defer  t
-  :bind   ("C-c SPC" . ace-jump-mode))
+  :bind   ("C-c j" . ace-jump-mode))
 
 (use-package autorevert
   :config (global-auto-revert-mode t))
