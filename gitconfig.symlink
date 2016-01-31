@@ -17,7 +17,7 @@
   lt = !git lasttouched
 
 [core]
-  editor = vim
+  editor = mg
 
 [github]
   user = dpassen1
