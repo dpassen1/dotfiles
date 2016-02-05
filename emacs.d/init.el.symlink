@@ -108,7 +108,8 @@
 (use-package web-mode
   :ensure t
   :pin    melpa-stable
-  :mode   ("\\.html?\\'" . web-mode)
+  :mode   (("\\.html?\\'"  . web-mode)
+           ("\\.js[x]?\\'" . web-mode))
   :config (setq web-mode-enable-auto-closing t)
           (setq web-mode-markup-indent-offset 2))
 
