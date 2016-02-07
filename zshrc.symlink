@@ -1,4 +1,5 @@
 export PATH=/usr/local/bin:/usr/local/sbin:~/.bin:$PATH
+export EDITOR=mg
 
 alias tmux='tmux -2'
 alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} | sort | selecta)'
