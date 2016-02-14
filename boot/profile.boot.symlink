@@ -1,8 +1,11 @@
-(require 'boot.repl)
+(set-env! :dependencies '[[boot-deps "0.1.6"]])
 
-(swap! boot.repl/*default-dependencies* conj
+(require '[boot.repl :as repl]
+         '[boot-deps :refer [ancient]])
+
+(swap! repl/*default-dependencies* conj
        '[cider/cider-nrepl       "0.10.2"]
        '[org.clojure/tools.nrepl "0.2.12"])
 
-(swap! boot.repl/*default-middleware* conj
+(swap! repl/*default-middleware* conj
        'cider.nrepl/cider-middleware)
