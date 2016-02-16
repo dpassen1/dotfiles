@@ -2,7 +2,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:~/.bin:$PATH
 export EDITOR=mg
 
 alias tmux='tmux -2'
-alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} | sort | selecta)'
+alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} 2> /dev/null | sort | selecta)'
 
 alias emacs='emacs -nw'
 alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | sort | selecta)'
