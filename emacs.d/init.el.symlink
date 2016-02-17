@@ -56,6 +56,12 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
+(use-package ielm
+  :init   (add-hook 'inferior-lisp-mode-hook 'paredit-mode)
+          (add-hook 'inferior-lisp-mode-hook 'subword-mode)
+          (add-hook 'inferior-lisp-mode-hook 'rainbow-delimiters-mode)
+  :config (setq inferior-lisp-program "boot repl"))
+
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
