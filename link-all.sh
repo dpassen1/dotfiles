@@ -5,17 +5,16 @@ set -o errexit
 
 function ensure_destination_exists {
     local dest="$1"
-    if ! [[ $dest == "." ]]; then
-        dest="~/."$dest""
-        echo "  Creating destination directory: "$dest""
+    if [[ $dest != "." ]]; then
+        dest="~/.$dest"
+        echo "  Creating destination directory: $dest"
         mkdir -p "$dest"
     fi
 }
 
 function create_symbolic_link {
     local path="$1"
-    local pwd=$(pwd)
-    local src="$pwd/$path"
+    local src="$PWD/$path"
     local dest_path=${path/%\.symlink/}
     local dest="$HOME/.$dest_path"
     ln -fs "$src" "$dest"
