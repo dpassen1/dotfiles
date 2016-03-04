@@ -100,6 +100,11 @@
   :ensure t
   :pin    melpa-stable)
 
+(use-package restclient
+  :ensure t
+  :pin    melpa
+  :defer  t)
+
 (use-package smex
   :ensure t
   :pin    melpa-stable
