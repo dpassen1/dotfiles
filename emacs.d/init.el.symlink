@@ -33,7 +33,8 @@
           (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
   :config (setq cider-repl-history-file        (let ((default-directory (clojure-project-dir (cider-current-dir))))
                                                  (expand-file-name ".cider-repl-history"))
-                cider-prompt-save-file-on-load 'always-save))
+                cider-prompt-save-file-on-load 'always-save
+                cider-repl-display-help-banner nil))
 
 (use-package clojure-mode
   :ensure t
