@@ -85,6 +85,10 @@
           (setq term-bind-key-alist (delete '("C-r" . isearch-backward) term-bind-key-alist))
           (add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history)))
 
+(use-package org
+  :init   (add-hook 'org-mode-hook #'org-indent-mode)
+          (add-hook 'org-mode-hook #'visual-line-mode))
+
 (use-package paredit
   :ensure t
   :pin    melpa-stable
