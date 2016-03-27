@@ -18,8 +18,6 @@ setopt interactivecomments
 bindkey -e
 bindkey '^R' history-incremental-search-backward
 bindkey '^[[3~' delete-char
-bindkey '^[[1;5C' emacs-forward-word
-bindkey '^[[1;5D' emacs-backward-word
 
 zstyle :compinstall filename '/Users/derek/.zshrc'
 zstyle ':completion:*' menu select
