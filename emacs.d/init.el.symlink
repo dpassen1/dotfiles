@@ -45,6 +45,12 @@
           (add-hook 'clojure-mode-hook 'subword-mode)
           (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
 
+(use-package emmet-mode
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :config (setq emmet-preview-default nil))
+
 (use-package expand-region
   :ensure t
   :pin    melpa
@@ -121,7 +127,8 @@
   :mode   (("\\.html?\\'"  . web-mode)
            ("\\.js[x]?\\'" . web-mode))
   :config (setq web-mode-enable-auto-closing t)
-          (setq web-mode-markup-indent-offset 2))
+          (setq web-mode-markup-indent-offset 2)
+  :init   (add-hook 'web-mode-hook 'emmet-mode))
 
 (use-package whitespace
   :diminish global-whitespace-mode
