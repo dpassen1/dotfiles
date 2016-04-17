@@ -4,7 +4,7 @@
          '[boot-deps :refer [ancient]])
 
 (swap! repl/*default-dependencies* conj
-       '[cider/cider-nrepl       "0.11.0"]
+       '[cider/cider-nrepl       "0.12.0"]
        '[org.clojure/tools.nrepl "0.2.12"])
 
 (swap! repl/*default-middleware* conj
