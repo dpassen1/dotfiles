@@ -18,7 +18,8 @@
   :bind   ("C-c j" . ace-jump-mode))
 
 (use-package autorevert
-  :config (global-auto-revert-mode t))
+  :diminish auto-revert-mode
+  :config   (global-auto-revert-mode t))
 
 (use-package better-defaults
   :ensure t
