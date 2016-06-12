@@ -98,9 +98,7 @@
 
 (use-package paredit
   :ensure t
-  :pin    melpa-stable
-  :config (define-key paredit-mode-map (kbd "M-)") 'paredit-forward-slurp-sexp)
-          (define-key paredit-mode-map (kbd "M-(") 'paredit-backward-slurp-sexp))
+  :pin    melpa-stable)
 
 (use-package rainbow-delimiters
   :ensure t
