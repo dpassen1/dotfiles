@@ -1,9 +1,11 @@
-{:user {:plugins  [[jonase/eastwood "0.2.3"]
-                   [lein-ancient    "0.6.10"]
-                   [lein-bikeshed   "0.3.0"]
-                   [lein-cljfmt     "0.5.3"]
-                   [lein-kibit      "0.1.2"]
-                   [lein-midje      "3.2"]
-                   [lein-try        "0.4.3"]
-                   [venantius/yagni "0.1.4"]]
-        :eastwood {:add-linters [:unused-namespaces]}}}
+{:user {:plugins      [[lein-ancient                      "0.6.10"]
+                       [lein-bikeshed                     "0.3.0"]
+                       [lein-cljfmt                       "0.5.3"]
+                       [lein-kibit                        "0.1.2"]
+                       [lein-midje                        "3.2"]
+                       [lein-try                          "0.4.3"]
+                       [com.jakemccrary/lein-test-refresh "0.16.0"]
+                       [jonase/eastwood                   "0.2.3"]
+                       [venantius/yagni                   "0.1.4"]]
+        :eastwood     {:add-linters [:unused-namespaces]}
+        :test-refresh {:quiet true}}}
