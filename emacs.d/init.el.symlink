@@ -68,9 +68,8 @@
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
-            (let* ((w (length (number-to-string
-                   (count-lines (point-min) (point-max)))))
-                   (linum-format (concat "%" (number-to-string (max 3 w)) "d ")))
+            (let* ((w (length (number-to-string (count-lines (point-min) (point-max)))))
+                   (linum-format (concat "%" (number-to-string (max 2 w)) "d ")))
               ad-do-it)))
 
 (use-package magit
