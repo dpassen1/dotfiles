@@ -65,9 +65,6 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
-(use-package prog-mode
-  :config (add-hook 'prog-mode-hook #'hs-minor-mode))
-
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
@@ -102,6 +99,10 @@
 (use-package paredit
   :ensure t
   :pin    melpa-stable)
+
+(use-package prog-mode
+  :config (add-hook 'prog-mode-hook #'hs-minor-mode)
+          (add-hook 'prog-mode-hook #'whitespace-mode))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -142,9 +143,8 @@
   :init   (add-hook 'web-mode-hook 'emmet-mode))
 
 (use-package whitespace
-  :diminish global-whitespace-mode
-  :init     (global-whitespace-mode t)
-            (setq whitespace-line-column 80)
+  :diminish whitespace-mode
+  :init     (setq whitespace-line-column 80)
             (setq whitespace-style '(face trailing lines-tail tabs)))
 
 (use-package zenburn-theme
