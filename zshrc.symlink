@@ -38,5 +38,7 @@ setopt prompt_subst
 PROMPT='[%n@%m] %2d${vcs_info_msg_0_}: '
 
 chpwd () {
-    print -Pn "\e]2; %~/ \a"
+    if [ -z "$INSIDE_EMACS" ]; then
+        print -Pn "\e]2; %~/ \a"
+    fi
 }
