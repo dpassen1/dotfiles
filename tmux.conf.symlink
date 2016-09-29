@@ -23,3 +23,7 @@ bind-key -t vi-copy 'y' copy-selection
 bind-key -t vi-copy Escape cancel
 unbind p
 bind p paste-buffer
+
+# Set terminal titles
+set-option -g set-titles on
+set-option -g set-titles-string '#S'
