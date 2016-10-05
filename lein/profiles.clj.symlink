@@ -1,6 +1,6 @@
 {:user {:plugins      [[lein-ancient                      "0.6.10"]
                        [lein-bikeshed                     "0.3.0"]
-                       [lein-cljfmt                       "0.5.5"]
+                       [lein-cljfmt                       "0.5.6"]
                        [lein-kibit                        "0.1.2"]
                        [lein-midje                        "3.2.1"]
                        [lein-try                          "0.4.3"]
