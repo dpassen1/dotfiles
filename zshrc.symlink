@@ -6,6 +6,7 @@ alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} 2> /dev/null | sor
 
 alias emacs='emacs -nw'
 alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | sort | selecta)'
+alias emacs-start='emacs --daemon=${PWD##*/} && emacsclient -nw -c -s ${PWD##*/}'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
