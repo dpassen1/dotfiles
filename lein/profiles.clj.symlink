@@ -4,7 +4,7 @@
                        [lein-kibit                        "0.1.2"]
                        [lein-midje                        "3.2.1"]
                        [lein-try                          "0.4.3"]
-                       [com.jakemccrary/lein-test-refresh "0.17.0"]
+                       [com.jakemccrary/lein-test-refresh "0.18.0"]
                        [jonase/eastwood                   "0.2.3"]
                        [venantius/yagni                   "0.1.4"]]
         :eastwood     {:add-linters [:unused-namespaces]}
