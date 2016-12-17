@@ -84,6 +84,9 @@
   :pin    melpa-stable
   :mode   ("\\.md\\'" . markdown-mode))
 
+(use-package menu-item
+  :bind ("C-x k" . kill-this-buffer))
+
 (use-package multi-term
   :ensure t
   :pin    melpa
