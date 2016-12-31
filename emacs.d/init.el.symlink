@@ -66,6 +66,9 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
+(use-package hideshow
+  :diminish hs-minor-mode)
+
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
