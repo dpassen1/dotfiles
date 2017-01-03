@@ -5,8 +5,6 @@ alias tmux='tmux -2'
 alias tmux-select='tmux attach -t $(tmux ls -F#{session_name} 2> /dev/null | sort | selecta)'
 
 alias emacs='emacs -nw'
-alias emacs-select='emacsclient -nw -c -s $(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | sort | selecta)'
-alias emacs-start='emacs --daemon=${PWD##*/} && emacsclient -nw -c -s ${PWD##*/}'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -42,4 +40,19 @@ chpwd () {
     if [ -z "$INSIDE_EMACS" ]; then
         print -Pn "\e]2; %~/ \a"
     fi
+}
+
+__start-emacs-with-title () {
+  echo -ne "\033]0;$1\007"
+  emacsclient -nw -c -s $1
+}
+
+emacs-start () {
+  emacs --daemon=${PWD##*/}
+  __start-emacs-with-title ${PWD##*/}
+}
+
+emacs-select () {
+  DAEMON=$(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | sort | selecta)
+  __start-emacs-with-title $DAEMON
 }
