@@ -52,7 +52,8 @@
   :ensure t
   :pin    melpa
   :defer  t
-  :config (setq emmet-preview-default nil))
+  :config (setq emmet-preview-default nil)
+          (define-key emmet-mode-keymap (kbd "C-c w") nil))
 
 (use-package expand-region
   :ensure t
