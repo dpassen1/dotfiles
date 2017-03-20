@@ -67,6 +67,11 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
+(use-package git-timemachine
+  :ensure t
+  :pin    melpa-stable
+  :defer  t)
+
 (use-package hideshow
   :diminish hs-minor-mode)
 
