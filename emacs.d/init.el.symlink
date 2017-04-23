@@ -126,6 +126,13 @@
   :pin    melpa
   :defer  t)
 
+(use-package rotate
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :bind   ("C-x M-r l" . rotate-layout)
+          ("C-x M-r w" . rotate-window))
+
 (use-package smex
   :ensure t
   :pin    melpa-stable
