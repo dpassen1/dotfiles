@@ -121,6 +121,12 @@
   :ensure t
   :pin    melpa-stable)
 
+(use-package resize-window
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-c ;" . resize-window))
+
 (use-package restclient
   :ensure t
   :pin    melpa
