@@ -5,6 +5,7 @@ alias tmux='tmux -2'
 alias tmux-select='tmux attach -t $(tmux ls "-F#{session_name}" 2> /dev/null | sort | selecta)'
 
 alias emacs='emacs -nw'
+alias magit='emacs -nw -q -l ~/.magit.d/init.el'
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
