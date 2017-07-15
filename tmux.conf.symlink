@@ -1,8 +1,4 @@
-# C-b is not acceptable -- Vim uses it
-set-option -g prefix C-a
-
-# But I still have to be able to get to the beginning of a line
-bind a send-prefix
+bind b send-prefix
 
 # Splitting windows into panes with h and v
 bind-key h split-window -v
