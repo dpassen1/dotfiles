@@ -7,6 +7,8 @@ alias tmux-select='tmux attach -t $(tmux ls "-F#{session_name}" 2> /dev/null | s
 alias emacs='emacs -nw'
 alias magit='emacs -nw -q -l ~/.magit.d/init.el'
 
+alias view='mg -e toggle-read-only'
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
