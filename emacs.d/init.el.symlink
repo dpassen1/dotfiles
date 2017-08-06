@@ -81,6 +81,12 @@
 (use-package hideshow
   :diminish hs-minor-mode)
 
+(use-package js2-mode
+  :ensure t
+  :pin    melpa-stable
+  :mode   ("\\.js\\'" . js2-mode)
+  :init   (add-hook 'js2-mode-hook 'subword-mode))
+
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
@@ -138,6 +144,11 @@
   :pin    melpa
   :defer  t)
 
+(use-package rjsx-mode
+  :ensure t
+  :pin    melpa-stable
+  :mode   ("\\.jsx\\'" . rjsx-mode))
+
 (use-package rotate
   :ensure t
   :pin    melpa
@@ -168,10 +179,9 @@
 (use-package web-mode
   :ensure t
   :pin    melpa-stable
-  :mode   (("\\.html?\\'"  . web-mode)
-           ("\\.js[x]?\\'" . web-mode))
-  :config (setq web-mode-enable-auto-closing t)
-          (setq web-mode-markup-indent-offset 2)
+  :mode   ("\\.html?\\'" . web-mode)
+  :config (setq web-mode-enable-auto-closing  t
+                web-mode-markup-indent-offset 2)
   :init   (add-hook 'web-mode-hook 'emmet-mode))
 
 (use-package whitespace
