@@ -73,11 +73,6 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
-(use-package git-timemachine
-  :ensure t
-  :pin    melpa-stable
-  :defer  t)
-
 (use-package hideshow
   :diminish hs-minor-mode)
 
@@ -162,15 +157,6 @@
   :bind   (("M-x" . smex)
            ("M-X" . smex-major-mode-commands)
            ("C-c C-c M-x" .  execute-extended-command)))
-
-(use-package twittering-mode
-  :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :init   (setq twittering-use-master-password t
-                twittering-status-format       " %S (%s) %@:
-%FILL[  ]{%T%r%R}
- "))
 
 (use-package view
   :config (global-set-key "\C-v" 'View-scroll-half-page-forward)
