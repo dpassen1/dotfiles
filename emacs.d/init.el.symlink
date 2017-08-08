@@ -76,12 +76,6 @@
 (use-package hideshow
   :diminish hs-minor-mode)
 
-(use-package js2-mode
-  :ensure t
-  :pin    melpa-stable
-  :mode   ("\\.js\\'" . js2-mode)
-  :init   (add-hook 'js2-mode-hook 'subword-mode))
-
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
@@ -142,7 +136,8 @@
 (use-package rjsx-mode
   :ensure t
   :pin    melpa-stable
-  :mode   ("\\.jsx\\'" . rjsx-mode))
+  :mode   ("\\.js[x]?\\'" . rjsx-mode)
+  :init   (add-hook 'js2-mode-hook 'subword-mode))
 
 (use-package rotate
   :ensure t
