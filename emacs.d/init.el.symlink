@@ -48,6 +48,16 @@
           (add-hook 'clojure-mode-hook 'subword-mode)
           (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
 
+(use-package dumb-jump
+  :ensure t
+  :pin    melpa-stable
+  :bind  (("M-g o" . dumb-jump-go-other-window)
+          ("M-g j" . dumb-jump-go)
+          ("M-g i" . dumb-jump-go-prompt)
+          ("M-g x" . dumb-jump-go-prefer-external)
+          ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-prefer-searcher 'ag))
+
 (use-package emmet-mode
   :ensure t
   :pin    melpa
