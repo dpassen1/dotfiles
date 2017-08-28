@@ -145,7 +145,8 @@
   :ensure t
   :pin    melpa-stable
   :mode   ("\\.js[x]?\\'" . rjsx-mode)
-  :init   (add-hook 'js2-mode-hook 'subword-mode))
+  :init   (add-hook 'js2-mode-hook  'subword-mode)
+          (add-hook 'rjsx-mode-hook 'emmet-mode))
 
 (use-package rotate
   :ensure t
