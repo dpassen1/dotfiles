@@ -17,6 +17,14 @@
   :defer  t
   :bind   ("C-c j" . ace-jump-mode))
 
+(use-package ag
+  :ensure t
+  :pin    melpa-stable
+  :bind   (("C-c a" . ag-project)
+           ("C-c A" . ag-project-regexp))
+  :init   (add-hook 'ag-search-finished-hook (lambda () (pop-to-buffer next-error-last-buffer)))
+  :config (setq ag-highlight-search 1))
+
 (use-package autorevert
   :diminish auto-revert-mode
   :config   (global-auto-revert-mode t))
