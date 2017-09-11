@@ -167,6 +167,10 @@
            ("M-X" . smex-major-mode-commands)
            ("C-c C-c M-x" .  execute-extended-command)))
 
+(use-package sql-mode
+  :mode (("\\.sql" . sql-mode)
+         ("\\.ddl" . sql-mode)))
+
 (use-package view
   :config (global-set-key "\C-v" 'View-scroll-half-page-forward)
           (global-set-key "\M-v" 'View-scroll-half-page-backward))
