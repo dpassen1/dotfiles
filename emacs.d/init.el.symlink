@@ -89,6 +89,15 @@
   :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
+(use-package hide-region
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :bind   (("C-c h r" . hide-region-hide)
+           ("C-c h u" . hide-region-unhide))
+  :config (setq hide-region-before-string ".."
+                hide-region-after-string  ".."))
+
 (use-package hideshow
   :diminish hs-minor-mode)
 
