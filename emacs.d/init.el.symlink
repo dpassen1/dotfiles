@@ -20,6 +20,7 @@
 (use-package ag
   :ensure t
   :pin    melpa-stable
+  :defer  t
   :bind   (("C-c a" . ag-project)
            ("C-c A" . ag-project-regexp))
   :init   (add-hook 'ag-search-finished-hook (lambda () (pop-to-buffer next-error-last-buffer)))
@@ -50,6 +51,7 @@
 (use-package clojure-mode
   :ensure t
   :pin    melpa-stable
+  :defer  t
   :init   (add-hook 'clojure-mode-hook 'paredit-mode)
           (add-hook 'clojure-mode-hook 'subword-mode)
           (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
@@ -57,6 +59,7 @@
 (use-package dumb-jump
   :ensure t
   :pin    melpa-stable
+  :defer  t
   :bind  (("M-g o" . dumb-jump-go-other-window)
           ("M-g j" . dumb-jump-go))
   :config (setq dumb-jump-prefer-searcher 'ag))
@@ -105,6 +108,7 @@
 (use-package markdown-mode
   :ensure t
   :pin    melpa-stable
+  :defer  t
   :mode   ("\\.md\\'" . markdown-mode))
 
 (use-package menu-item
@@ -149,6 +153,7 @@
 (use-package rjsx-mode
   :ensure t
   :pin    melpa-stable
+  :defer  t
   :mode   ("\\.js[x]?\\'" . rjsx-mode)
   :init   (add-hook 'js2-mode-hook  'subword-mode)
           (add-hook 'rjsx-mode-hook 'emmet-mode))
@@ -178,6 +183,7 @@
 (use-package web-mode
   :ensure t
   :pin    melpa-stable
+  :defer  t
   :mode   ("\\.html?\\'" . web-mode)
   :config (setq web-mode-enable-auto-closing  t
                 web-mode-markup-indent-offset 2)
