@@ -185,6 +185,9 @@
   :mode (("\\.sql" . sql-mode)
          ("\\.ddl" . sql-mode)))
 
+(use-package subword
+  :diminish subword-mode)
+
 (use-package view
   :config (global-set-key "\C-v" 'View-scroll-half-page-forward)
           (global-set-key "\M-v" 'View-scroll-half-page-backward))
