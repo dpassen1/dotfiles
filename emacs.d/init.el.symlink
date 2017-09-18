@@ -81,7 +81,8 @@
   :ensure t
   :pin    melpa
   :defer  t
-  :bind   ("C-c w" . er/expand-region))
+  :bind   ("C-c w" . er/expand-region)
+  :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
 
 (use-package find-file-in-repository
   :ensure t
