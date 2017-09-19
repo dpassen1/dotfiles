@@ -11,12 +11,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package ace-jump-mode
-  :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :bind   ("C-c j" . ace-jump-mode))
-
 (use-package ag
   :ensure t
   :pin    melpa-stable
