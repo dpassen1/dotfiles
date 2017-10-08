@@ -5,7 +5,7 @@ set -o errexit
 
 ls -d */ | sort -f | while read dir; do
     if [ -d "$dir/.git" ]; then
-        echo "Git: ${dir%/}"
+        echo "${dir%/}"
         (cd "$dir" && git "$@")
         echo
     fi
