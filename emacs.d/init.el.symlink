@@ -11,6 +11,9 @@
 (eval-when-compile
   (require 'use-package))
 
+(use-package abbrev
+  :diminish abbrev-mode)
+
 (use-package ag
   :ensure t
   :pin    melpa-stable
