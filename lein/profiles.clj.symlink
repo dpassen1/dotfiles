@@ -4,7 +4,7 @@
                        [lein-ancient                      "0.6.14"]
                        [lein-bikeshed                     "0.5.0"]
                        [lein-cljfmt                       "0.5.7"]
-                       [lein-kibit                        "0.1.5"]
+                       [lein-kibit                        "0.1.6"]
                        [lein-try                          "0.4.3"]
                        [venantius/yagni                   "0.1.4"]]
         :eastwood     {:add-linters [:unused-namespaces]}
