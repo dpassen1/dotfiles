@@ -50,8 +50,7 @@
   :pin    melpa-stable
   :defer  t
   :init   (add-hook 'clojure-mode-hook 'paredit-mode)
-          (add-hook 'clojure-mode-hook 'subword-mode)
-          (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode))
+          (add-hook 'clojure-mode-hook 'subword-mode))
 
 (use-package dumb-jump
   :ensure t
@@ -142,7 +141,8 @@
 
 (use-package prog-mode
   :config (add-hook 'prog-mode-hook #'hs-minor-mode)
-          (add-hook 'prog-mode-hook #'whitespace-mode))
+          (add-hook 'prog-mode-hook #'whitespace-mode)
+          (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package rainbow-delimiters
   :ensure t
