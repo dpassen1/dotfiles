@@ -6,7 +6,7 @@ set -o errexit
 function ensure_destination_exists {
     local dest="$1"
     if [[ $dest != "." ]]; then
-        dest="~/.$dest"
+        dest="$HOME/.$dest"
         echo "  Creating destination directory: $dest"
         mkdir -p "$dest"
     fi
