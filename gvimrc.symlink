@@ -1,7 +1,10 @@
 if has("gui_gtk2")
-    set guifont=Panic\ Sans\ 11
-else
-    set guifont=Panic\ Sans:h11
+    set guifont=PragmataPro\ 11
+end
+
+if has("gui_macvim")
+    set macligatures
+    set guifont=PragmataPro:h11
 end
 
 if has("gui_running")
