@@ -20,7 +20,7 @@ bindkey -e
 bindkey '^R' history-incremental-search-backward
 bindkey '^[[3~' delete-char
 
-zstyle :compinstall filename '/Users/derek/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*' menu select
 
 autoload -Uz compinit
