@@ -21,14 +21,15 @@ function create_symbolic_link {
 }
 
 function link_dotfiles {
-    find . -iname "*.symlink" | while read link; do
-        echo "Linking "$link""
+    find . -iname "*.symlink" | while read -r link; do
+        echo "Linking $link"
 
         local relpath=${link/#\.\//}
-        local dir=$(dirname "$relpath")
+        local dir
+        dir=$(dirname "$relpath")
 
-        ensure_destination_exists $dir
-        create_symbolic_link $relpath
+        ensure_destination_exists "$dir"
+        create_symbolic_link "$relpath"
     done
 }
 
