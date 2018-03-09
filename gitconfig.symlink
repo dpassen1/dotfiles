@@ -11,9 +11,9 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   scoreboard = shortlog -sn
   sb = !git scoreboard
-  standup = !git ln --since='yesterday' --author=$(git config user.email)
+  standup = !git ln --since='yesterday' --author="$(git config user.email)"
   su = !git standup
-  lasttouched = "!lt() { git branch -r | grep -v ' -> ' | while read branch; do echo $branch; git log --pretty=format:"%cr" $branch -n 1; echo; done; }; lt"
+  lasttouched = "!lt() { git branch -r | grep -v ' -> ' | while read -r branch; do echo "$branch"; git log --pretty=format:"%cr" "$branch" -n 1; echo; done; }; lt"
   lt = !git lasttouched
 
 [github]
