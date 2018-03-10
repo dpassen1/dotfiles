@@ -80,11 +80,11 @@
   :bind   ("C-c w" . er/expand-region)
   :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
 
-(use-package find-file-in-repository
+(use-package fzf
   :ensure t
-  :pin    melpa-stable
+  :pin    melpa
   :defer  t
-  :bind   ("C-x M-f" . find-file-in-repository))
+  :bind   ("C-x M-f" . fzf-git))
 
 (use-package hideshow
   :diminish hs-minor-mode)

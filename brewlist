@@ -3,6 +3,7 @@ cksfv
 clojure
 emacs
 entr
+fzf
 git
 gnupg
 gnupg2
@@ -21,7 +22,6 @@ p7zip
 pass
 python
 rename
-selecta
 shellcheck
 the_silver_searcher
 tmux
