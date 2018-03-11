@@ -89,6 +89,13 @@
 (use-package hideshow
   :diminish hs-minor-mode)
 
+(use-package ido-vertical-mode
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :init   (ido-vertical-mode t)
+  :config (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
+
 (use-package linum
   :init   (global-linum-mode t)
   :config (defadvice linum-update-window (around linum-dynamic activate)
