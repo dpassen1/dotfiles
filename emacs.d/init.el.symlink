@@ -84,7 +84,8 @@
   :ensure t
   :pin    melpa
   :defer  t
-  :bind   ("C-x M-f" . fzf-git))
+  :bind   ("C-x M-f" . fzf-git)
+  :init   (setenv "FZF_DEFAULT_COMMAND" "ag -l"))
 
 (use-package hideshow
   :diminish hs-minor-mode)
