@@ -1,2 +1,4 @@
 global-set-key "\^x[" beginning-of-buffer
 global-set-key "\^x]" end-of-buffer
+
+auto-execute "*.nfo" "local-set-charset cp437"
