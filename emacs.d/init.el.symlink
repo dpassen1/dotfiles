@@ -229,3 +229,8 @@
 
 ;; Stop customize from writing to this file
 (setq custom-file (make-temp-file "emacs-custom"))
+
+;; Pretty titlebar on Mac
+(when (and (eq system-type 'darwin) (display-graphic-p))
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
