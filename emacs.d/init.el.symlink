@@ -97,15 +97,6 @@
   :init   (ido-vertical-mode t)
   :config (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
 
-(use-package linum
-  :init   (global-linum-mode t)
-  :config (defadvice linum-update-window (around linum-dynamic activate)
-            (let* ((w (length (number-to-string (count-lines (point-min) (point-max)))))
-                   (linum-format (concat "%" (number-to-string (max 2 w)) "d ")))
-              ad-do-it))
-          (set-face-underline 'linum nil)
-          (set-face-bold      'linum nil))
-
 (use-package magit
   :ensure t
   :pin    melpa-stable
@@ -141,7 +132,8 @@
 (use-package prog-mode
   :config (add-hook 'prog-mode-hook #'hs-minor-mode)
           (add-hook 'prog-mode-hook #'whitespace-mode)
-          (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+          (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+          (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
 (use-package rainbow-delimiters
   :ensure t
