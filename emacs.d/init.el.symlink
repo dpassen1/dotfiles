@@ -43,7 +43,8 @@
                 cider-prompt-save-file-on-load  'always-save
                 cider-repl-display-help-banner  nil
                 cider-repl-use-pretty-printing  t
-                cider-mode-line-show-connection nil))
+                cider-mode-line-show-connection nil
+                cider-use-fringe-indicators     nil))
 
 (use-package clojure-mode
   :ensure t
