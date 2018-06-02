@@ -111,8 +111,7 @@
 (use-package markdown-mode
   :ensure t
   :pin    melpa-stable
-  :defer  t
-  :mode   ("\\.md\\'" . markdown-mode))
+  :defer  t)
 
 (use-package menu-item
   :bind ("C-x k" . kill-this-buffer))
