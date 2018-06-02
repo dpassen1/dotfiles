@@ -72,7 +72,7 @@
 (use-package exec-path-from-shell
   :ensure t
   :pin    melpa-stable
-  :config (when (memq window-system '(mac ns))
+  :config (when (and (eq system-type 'darwin) (display-graphic-p))
             (exec-path-from-shell-initialize)))
 
 (use-package expand-region
