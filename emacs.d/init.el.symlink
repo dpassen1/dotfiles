@@ -63,7 +63,7 @@
   :config (setq dumb-jump-prefer-searcher 'ag))
 
 (use-package elisp-mode
-  :init   (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
+  :init (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
 
 (use-package emmet-mode
   :ensure t
@@ -161,8 +161,8 @@
   :ensure t
   :pin    melpa
   :defer  t
-  :bind   ("C-x M-r l" . rotate-layout)
-          ("C-x M-r w" . rotate-window))
+  :bind   (("C-x M-r l" . rotate-layout)
+           ("C-x M-r w" . rotate-window)))
 
 (use-package smex
   :ensure t
