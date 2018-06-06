@@ -92,6 +92,11 @@
   :bind   ("C-x M-f" . fzf-git)
   :init   (setenv "FZF_DEFAULT_COMMAND" "ag -l"))
 
+(use-package git-timemachine
+  :ensure t
+  :pin    melpa-stable
+  :defer  t)
+
 (use-package hideshow
   :diminish hs-minor-mode)
 
