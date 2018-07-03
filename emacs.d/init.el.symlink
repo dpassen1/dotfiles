@@ -235,3 +235,6 @@
 (when (and (eq system-type 'darwin) (display-graphic-p))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-to-list 'default-frame-alist '(ns-appearance . dark)))
+
+;; Just stop it
+(setq confirm-kill-processes nil)
