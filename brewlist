@@ -23,6 +23,7 @@ p7zip
 pass
 python
 rename
+rg
 shellcheck
 tmux
 trash
