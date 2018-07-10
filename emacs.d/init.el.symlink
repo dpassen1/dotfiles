@@ -51,7 +51,7 @@
   :defer  t
   :bind  (("M-g o" . dumb-jump-go-other-window)
           ("M-g j" . dumb-jump-go))
-  :config (setq dumb-jump-prefer-searcher 'ag))
+  :config (setq dumb-jump-prefer-searcher 'rg))
 
 (use-package elisp-mode
   :init (add-hook 'emacs-lisp-mode-hook 'paredit-mode))
