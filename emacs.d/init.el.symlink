@@ -14,15 +14,6 @@
 (use-package abbrev
   :diminish abbrev-mode)
 
-(use-package ag
-  :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :bind   (("C-c a" . ag-project)
-           ("C-c A" . ag-project-regexp))
-  :init   (add-hook 'ag-search-finished-hook (lambda () (pop-to-buffer next-error-last-buffer)))
-  :config (setq ag-highlight-search 1))
-
 (use-package autorevert
   :diminish auto-revert-mode
   :config   (global-auto-revert-mode t))
@@ -152,6 +143,13 @@
   :ensure t
   :pin    melpa
   :defer  t)
+
+(use-package rg
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-c a" . rg-dwim)
+  :init   (add-hook 'rg-filter-hook (lambda () (pop-to-buffer next-error-last-buffer))))
 
 (use-package rjsx-mode
   :ensure t
