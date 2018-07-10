@@ -81,7 +81,7 @@
   :pin    melpa
   :defer  t
   :bind   ("C-x M-f" . fzf-git)
-  :init   (setenv "FZF_DEFAULT_COMMAND" "ag -l"))
+  :init   (setenv "FZF_DEFAULT_COMMAND" "rg --files"))
 
 (use-package git-timemachine
   :ensure t
