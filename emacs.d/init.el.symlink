@@ -148,7 +148,7 @@
   :ensure t
   :pin    melpa-stable
   :defer  t
-  :bind   ("C-c a" . rg-dwim)
+  :bind   ("C-c r" . rg-dwim)
   :init   (add-hook 'rg-filter-hook (lambda () (pop-to-buffer next-error-last-buffer))))
 
 (use-package rjsx-mode
