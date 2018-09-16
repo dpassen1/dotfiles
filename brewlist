@@ -4,6 +4,7 @@ cksfv
 clojure
 emacs
 entr
+fd
 fzf
 git
 gnupg
