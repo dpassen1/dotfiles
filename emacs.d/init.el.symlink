@@ -119,7 +119,8 @@
   :bind   ("C-x RET" . multi-term)
   :config (add-to-list 'term-bind-key-alist '("C-z" . term-stop-subjob))
           (setq term-bind-key-alist (delete '("C-r" . isearch-backward) term-bind-key-alist))
-          (add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history)))
+          (add-to-list 'term-bind-key-alist '("C-r" . term-send-reverse-search-history))
+          (define-key term-raw-map "\C-u" nil))
 
 (use-package org
   :init (add-hook 'org-mode-hook #'org-indent-mode)
