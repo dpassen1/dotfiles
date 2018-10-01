@@ -32,7 +32,7 @@
   :config (let* ((default-directory (clojure-project-dir))
                  (repl-history-file (expand-file-name ".cider-repl-history")))
             (setq cider-repl-history-file         repl-history-file
-                  cider-prompt-save-file-on-load  'always-save
+                  cider-save-file-on-load         t
                   cider-repl-display-help-banner  nil
                   cider-repl-use-pretty-printing  t
                   cider-mode-line-show-connection nil
