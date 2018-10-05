@@ -50,7 +50,8 @@
   :pin    melpa-stable
   :defer  t
   :bind  (("M-g o" . dumb-jump-go-other-window)
-          ("M-g j" . dumb-jump-go))
+          ("M-g j" . dumb-jump-go)
+          ("M-g b" . dumb-jump-back))
   :config (setq dumb-jump-prefer-searcher 'rg))
 
 (use-package elisp-mode
