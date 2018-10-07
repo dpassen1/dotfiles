@@ -224,7 +224,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Pragmata Pro is my preferred font
-(let ((default-font "PragmataPro Mono Liga 12"))
+(let ((default-font "PragmataPro Liga 12"))
   (add-to-list 'default-frame-alist `(font . ,default-font))
   (set-face-attribute 'default t :font default-font))
 
