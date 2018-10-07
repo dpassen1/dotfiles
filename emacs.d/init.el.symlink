@@ -43,7 +43,8 @@
   :pin    melpa-stable
   :defer  t
   :init   (add-hook 'clojure-mode-hook 'paredit-mode)
-          (add-hook 'clojure-mode-hook 'subword-mode))
+          (add-hook 'clojure-mode-hook 'subword-mode)
+  :config (setq clojure-align-forms-automatically t))
 
 (use-package dumb-jump
   :ensure t
