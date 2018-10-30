@@ -46,12 +46,6 @@
           (add-hook 'clojure-mode-hook 'subword-mode)
   :config (setq clojure-align-forms-automatically t))
 
-(use-package deadgrep
-  :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :bind   ("C-c r" . deadgrep))
-
 (use-package dumb-jump
   :ensure t
   :pin    melpa-stable
@@ -152,6 +146,13 @@
   :ensure t
   :pin    melpa
   :defer  t)
+
+(use-package rg
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-c r" . rg-dwim)
+  :init   (add-hook 'rg-filter-hook (lambda () (pop-to-buffer next-error-last-buffer))))
 
 (use-package rjsx-mode
   :ensure t
