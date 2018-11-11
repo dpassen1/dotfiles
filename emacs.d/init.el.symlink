@@ -46,6 +46,14 @@
           (add-hook 'clojure-mode-hook 'subword-mode)
   :config (setq clojure-align-forms-automatically t))
 
+(use-package default-text-scale
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :bind   (("C-M-+" . default-text-scale-increase)
+           ("C-M--" . default-text-scale-decrease)
+           ("C-M-0" . default-text-scale-reset)))
+
 (use-package doneburn-theme
   :ensure t
   :pin    melpa)
