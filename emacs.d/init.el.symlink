@@ -46,6 +46,10 @@
           (add-hook 'clojure-mode-hook 'subword-mode)
   :config (setq clojure-align-forms-automatically t))
 
+(use-package doneburn-theme
+  :ensure t
+  :pin    melpa)
+
 (use-package dumb-jump
   :ensure t
   :pin    melpa-stable
