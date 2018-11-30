@@ -72,7 +72,7 @@
   :config (setq emmet-preview-default nil)
   :bind   (:map emmet-mode-keymap
            ("C-c w" . nil))
-  :hook   ((rjsx-mode web-mode) . emmet-mode))
+  :hook   (rjsx-mode web-mode))
 
 (use-package exec-path-from-shell
   :ensure t
