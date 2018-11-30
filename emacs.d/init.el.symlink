@@ -186,8 +186,8 @@
   :hook     ((cider-repl-mode clojure-mode js2-mode) . subword-mode))
 
 (use-package view
-  :config (global-set-key "\C-v" 'View-scroll-half-page-forward)
-          (global-set-key "\M-v" 'View-scroll-half-page-backward))
+  :bind   (("C-v" . View-scroll-half-page-forward)
+           ("M-v" . View-scroll-half-page-backward)))
 
 (use-package web-mode
   :ensure t
