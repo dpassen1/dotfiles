@@ -197,8 +197,8 @@
 
 (use-package whitespace
   :diminish whitespace-mode
-  :init     (setq whitespace-line-column 80)
-            (setq whitespace-style '(face trailing lines-tail tabs))
+  :init     (setq whitespace-line-column 80
+                  whitespace-style       '(face trailing lines-tail tabs))
   :hook     (prog-mode . whitespace-mode))
 
 (use-package zenburn-theme
