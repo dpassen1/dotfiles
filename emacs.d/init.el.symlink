@@ -243,3 +243,9 @@
 ;; Use ligatures when available
 (when (fboundp 'mac-auto-operator-composition-mode)
   (mac-auto-operator-composition-mode))
+
+;; Various tweaks needed for railwaycat's emacs port
+(when (and (eq system-type 'darwin) (display-graphic-p))
+  (menu-bar-mode 't)
+  (setq mac-option-modifier  'meta
+        mac-command-modifier nil))
