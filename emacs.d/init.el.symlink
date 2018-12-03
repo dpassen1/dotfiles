@@ -239,3 +239,7 @@
 
 ;; Just stop it
 (setq confirm-kill-processes nil)
+
+;; Use ligatures when available
+(when (fboundp 'mac-auto-operator-composition-mode)
+  (mac-auto-operator-composition-mode))
