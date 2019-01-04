@@ -91,6 +91,12 @@
   :pin    melpa-stable
   :defer  t)
 
+(use-package golden-ratio
+  :ensure   t
+  :pin      melpa
+  :diminish golden-ratio-mode
+  :config   (golden-ratio-mode))
+
 (use-package hideshow
   :diminish hs-minor-mode
   :hook     (prog-mode . hs-minor-mode))
@@ -157,12 +163,6 @@
   :ensure t
   :pin    melpa-stable
   :mode   ("\\.js[x]?\\'" . rjsx-mode))
-
-(use-package rotate
-  :ensure t
-  :pin    melpa
-  :bind   (("C-x M-r l" . rotate-layout)
-           ("C-x M-r w" . rotate-window)))
 
 (use-package smex
   :ensure t
