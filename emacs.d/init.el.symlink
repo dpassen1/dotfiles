@@ -197,8 +197,12 @@
 
 (use-package zenburn-theme
   :ensure t
-  :pin    melpa-stable
-  :config (load-theme 'zenburn t))
+  :pin    melpa-stable)
+
+(use-package zerodark-theme
+  :ensure t
+  :pin    melpa
+  :config (load-theme 'zerodark t))
 
 ;; Prevent loading screen
 (setq-default inhibit-startup-screen t)
