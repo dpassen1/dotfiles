@@ -95,7 +95,8 @@
   :ensure   t
   :pin      melpa
   :diminish golden-ratio-mode
-  :config   (golden-ratio-mode))
+  :config   (golden-ratio-mode)
+            (add-to-list 'window-size-change-functions 'golden-ratio))
 
 (use-package hideshow
   :diminish hs-minor-mode
