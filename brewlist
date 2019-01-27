@@ -1,4 +1,3 @@
-ag
 aspell
 bat
 cksfv
@@ -26,7 +25,7 @@ p7zip
 pass
 python
 rename
-rg
+ripgrep
 shellcheck
 tmux
 trash
