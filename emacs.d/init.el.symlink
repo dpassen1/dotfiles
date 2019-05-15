@@ -80,6 +80,9 @@
   :bind   ("C-c w" . er/expand-region)
   :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
 
+(use-package ffap
+  :bind   ("C-c f" . find-file-at-point))
+
 (use-package fzf
   :ensure t
   :pin    melpa
