@@ -81,7 +81,7 @@
   :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
 
 (use-package ffap
-  :bind   ("C-c f" . ffap-other-window))
+  :bind   ("M-g f" . ffap-other-window))
 
 (use-package fzf
   :ensure t
