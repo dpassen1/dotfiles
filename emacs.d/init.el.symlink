@@ -54,10 +54,6 @@
   :ensure t
   :pin    melpa-stable)
 
-(use-package doneburn-theme
-  :ensure t
-  :pin    melpa)
-
 (use-package dumb-jump
   :ensure t
   :pin    melpa-stable
@@ -198,10 +194,6 @@
   :init     (setq whitespace-line-column 80
                   whitespace-style       '(face trailing lines-tail tabs))
   :hook     (prog-mode . whitespace-mode))
-
-(use-package zenburn-theme
-  :ensure t
-  :pin    melpa-stable)
 
 (use-package zerodark-theme
   :ensure t
