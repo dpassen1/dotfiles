@@ -176,7 +176,7 @@
 
 (use-package subword
   :diminish subword-mode
-  :hook     ((cider-repl-mode clojure-mode js2-mode) . subword-mode))
+  :hook     ((cider-repl-mode clojure-mode js2-mode python-mode) . subword-mode))
 
 (use-package view
   :bind   (("C-v" . View-scroll-half-page-forward)
