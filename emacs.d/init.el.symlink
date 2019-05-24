@@ -25,12 +25,13 @@
   :pin    melpa)
 
 (use-package blacken
-  :ensure t
-  :pin    melpa
-  :defer  t
-  :config (setq blacken-line-length               80
-                blacken-skip-string-normalization 't)
-  :hook   (python-mode . blacken-mode))
+  :ensure   t
+  :pin      melpa
+  :defer    t
+  :diminish blacken-mode
+  :config   (setq blacken-line-length               80
+                  blacken-skip-string-normalization 't)
+  :hook     (python-mode . blacken-mode))
 
 (use-package cider
   :ensure t
