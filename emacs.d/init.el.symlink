@@ -63,6 +63,10 @@
   :ensure t
   :pin    melpa-stable)
 
+(use-package doneburn-theme
+  :ensure t
+  :pin    melpa)
+
 (use-package dumb-jump
   :ensure t
   :pin    melpa-stable
