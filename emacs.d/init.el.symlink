@@ -256,3 +256,6 @@
   (menu-bar-mode 't)
   (setq mac-option-modifier  'meta
         mac-command-modifier nil))
+
+;; Enter Unicode characters using hex
+(setq read-quoted-char-radix 16)
