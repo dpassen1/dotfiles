@@ -65,7 +65,8 @@
 
 (use-package doneburn-theme
   :ensure t
-  :pin    melpa)
+  :pin    melpa
+  :defer  t)
 
 (use-package dumb-jump
   :ensure t
