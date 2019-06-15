@@ -16,4 +16,8 @@
   {:extra-deps {com.jameslaverack/cljfmt-runner
                 {:git/url "https://github.com/JamesLaverack/cljfmt-runner"
                  :sha     "97960e9a6464935534b5a6bab529e063d0027128"}}
-   :main-opts  ["-m" "cljfmt-runner.check"]}}}
+   :main-opts  ["-m" "cljfmt-runner.check"]}
+  :outdated
+  {:extra-deps
+   {olical/depot {:mvn/version "1.8.2"}}
+   :main-opts ["-m" "depot.outdated.main"]}}}
