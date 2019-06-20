@@ -52,6 +52,11 @@
   :defer  t
   :config (setq clojure-align-forms-automatically t))
 
+(use-package deadgrep
+  :ensure t
+  :pin    melpa-stable
+  :bind   ("C-c r" . deadgrep))
+
 (use-package default-text-scale
   :ensure t
   :pin    melpa
@@ -159,12 +164,6 @@
   :ensure t
   :pin    melpa
   :defer  t)
-
-(use-package rg
-  :ensure t
-  :pin    melpa-stable
-  :bind   ("C-c r" . rg-dwim)
-  :init   (add-hook 'rg-filter-hook (lambda () (pop-to-buffer next-error-last-buffer))))
 
 (use-package rjsx-mode
   :ensure t
