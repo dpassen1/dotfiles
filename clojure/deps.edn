@@ -25,4 +25,8 @@
   :eastwood
   {:extra-deps
    {jonase/eastwood {:mvn/version "0.3.5"}}
-   :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}}}
+   :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}
+  :coverage
+  {:extra-deps
+   {cloverage {:mvn/version "1.1.1"}}
+   :main-opts ["-m" "cloverage.coverage" "-p" "src" "-s" "test"]}}}
