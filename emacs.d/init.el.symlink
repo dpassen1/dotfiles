@@ -259,3 +259,6 @@
 
 ;; Enter Unicode characters using hex
 (setq read-quoted-char-radix 16)
+
+;; Set frame title to the buffer name
+(setq-default frame-title-format '("%b - emacs"))
