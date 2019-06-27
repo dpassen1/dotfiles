@@ -109,9 +109,23 @@
   :pin    melpa-stable
   :defer  t)
 
+(use-package golden-ratio
+  :ensure   t
+  :pin      melpa
+  :diminish golden-ratio-mode
+  :config   (golden-ratio-mode)
+            (add-to-list 'window-size-change-functions 'golden-ratio))
+
 (use-package hideshow
   :diminish hs-minor-mode
   :hook     (prog-mode . hs-minor-mode))
+
+(use-package ido-vertical-mode
+  :ensure t
+  :pin    melpa
+  :defer  t
+  :init   (ido-vertical-mode t)
+  :config (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
 
 (use-package magit
   :ensure t
@@ -198,13 +212,6 @@
   :ensure t
   :pin    melpa
   :config (load-theme 'zerodark t))
-
-(use-package zoom
-  :ensure   t
-  :pin      melpa
-  :diminish zoom-mode
-  :config   (setq zoom-size '(0.618 . 0.618))
-            (zoom-mode t))
 
 ;; Prevent loading screen
 (setq-default inhibit-startup-screen t)
