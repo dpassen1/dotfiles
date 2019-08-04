@@ -36,9 +36,7 @@ setopt prompt_subst
 PROMPT='[%n@%m] %2d${vcs_info_msg_0_}: '
 
 chpwd () {
-    if [ -z "$INSIDE_EMACS" ]; then
-        print -Pn "\e]2; %~/ \a"
-    fi
+    print -Pn "\e]2; %~/ \a"
 }
 
 __start-emacs-with-title () {

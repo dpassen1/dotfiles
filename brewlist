@@ -14,6 +14,8 @@ gpg-agent
 gradle
 imgcat
 jq
+libtool
+libvterm
 lumo
 markdown
 maven
