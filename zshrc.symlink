@@ -53,3 +53,7 @@ emacs-select () {
   DAEMON=$(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | fzf)
   __start-emacs-with-title $DAEMON
 }
+
+nfocat () {
+  iconv -f cp437 "$@"
+}
