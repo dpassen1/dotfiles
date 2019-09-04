@@ -4,10 +4,6 @@
    {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
                      :sha     "b48d4e7000586529f81c1e29069b503b57259514"}}
    :main-opts ["-m" "clj-check.check"]}
-  :cider-nrepl
-  {:extra-deps
-   {cider/cider-nrepl {:mvn/version "0.21.1"}}
-   :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
   :uberjar
   {:extra-deps
    {uberdeps {:mvn/version "0.1.4"}}
