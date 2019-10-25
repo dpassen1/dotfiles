@@ -53,10 +53,11 @@
   :config (setq clojure-align-forms-automatically t))
 
 (use-package company
-  :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :hook   ((cider-repl-mode cider-mode) . company-mode))
+  :ensure   t
+  :pin      melpa-stable
+  :defer    t
+  :diminish company-mode
+  :hook     ((cider-repl-mode cider-mode) . company-mode))
 
 (use-package deadgrep
   :ensure t
