@@ -75,6 +75,11 @@
   :ensure t
   :pin    melpa-stable)
 
+(use-package dockerfile-mode
+  :ensure t
+  :pin    melpa
+  :defer  t)
+
 (use-package doneburn-theme
   :ensure t
   :pin    melpa
