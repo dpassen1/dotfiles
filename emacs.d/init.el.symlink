@@ -223,6 +223,11 @@
                   whitespace-style       '(face trailing lines-tail tabs))
   :hook     (prog-mode . whitespace-mode))
 
+(use-package yaml-mode
+  :ensure t
+  :pin    melpa-stable
+  :defer  t)
+
 (use-package zerodark-theme
   :ensure t
   :pin    melpa
