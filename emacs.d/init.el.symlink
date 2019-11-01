@@ -52,6 +52,11 @@
   :defer  t
   :config (setq clojure-align-forms-automatically t))
 
+(use-package cloud-theme
+  :ensure t
+  :pin    melpa
+  :defer  t)
+
 (use-package company
   :ensure   t
   :pin      melpa-stable
@@ -76,11 +81,6 @@
   :pin    melpa-stable)
 
 (use-package dockerfile-mode
-  :ensure t
-  :pin    melpa
-  :defer  t)
-
-(use-package doneburn-theme
   :ensure t
   :pin    melpa
   :defer  t)
