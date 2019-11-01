@@ -31,10 +31,12 @@ zstyle ':vcs_info:hg*' formats " (%b)"
 
 precmd() {
     vcs_info
+    print ""
 }
 
 setopt prompt_subst
-PROMPT='[%n@%m] %2d${vcs_info_msg_0_}: '
+NEWLINE=$'\n'
+PROMPT='[%n@%m] %2d${vcs_info_msg_0_}${NEWLINE}$ '
 
 chpwd () {
     print -Pn "\e]2; %~/ \a"
