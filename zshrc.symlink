@@ -60,3 +60,13 @@ emacs-select () {
 nfocat () {
   iconv -f cp437 "$@"
 }
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='printf "\e]51;Evterm-clear-scrollback\e\\";tput clear'
+fi
+
+vterm_prompt_end() {
+    printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\";
+}
+
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
