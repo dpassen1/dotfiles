@@ -1,13 +1,22 @@
 {:aliases
  {:check
   {:extra-deps
-   {athos/clj-check {:git/url "https://github.com/athos/clj-check.git"
-                     :sha     "a2f4d4cb6ef347bff420edb66629e41d530b9668"}}
+   {athos/clj-check
+    {:git/url "https://github.com/athos/clj-check.git"
+     :sha     "a2f4d4cb6ef347bff420edb66629e41d530b9668"}}
    :main-opts ["-m" "clj-check.check"]}
-  :uberjar
+  :coverage
   {:extra-deps
-   {uberdeps {:mvn/version "0.1.6"}}
-   :main-opts ["-m" "uberdeps.uberjar"]}
+   {cloverage {:mvn/version "1.1.2"}}
+   :main-opts ["-m" "cloverage.coverage" "-p" "src" "-s" "test"]}
+  :eastwood
+  {:extra-deps
+   {jonase/eastwood {:mvn/version "0.3.6"}}
+   :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}
+  :kibit
+  {:extra-deps
+   {tvaughan/kibit-runner {:mvn/version "0.2.2"}}
+   :main-opts ["-m" "kibit-runner.cmdline"]}
   :lint
   {:extra-deps
    {com.jameslaverack/cljfmt-runner
@@ -18,15 +27,7 @@
   {:extra-deps
    {olical/depot {:mvn/version "1.8.4"}}
    :main-opts ["-m" "depot.outdated.main"]}
-  :eastwood
+  :uberjar
   {:extra-deps
-   {jonase/eastwood {:mvn/version "0.3.6"}}
-   :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}
-  :coverage
-  {:extra-deps
-   {cloverage {:mvn/version "1.1.2"}}
-   :main-opts ["-m" "cloverage.coverage" "-p" "src" "-s" "test"]}
-  :kibit
-  {:extra-deps
-   {tvaughan/kibit-runner {:mvn/version "0.2.2"}}
-   :main-opts ["-m" "kibit-runner.cmdline"]}}}
+   {uberdeps {:mvn/version "0.1.6"}}
+   :main-opts ["-m" "uberdeps.uberjar"]}}}
