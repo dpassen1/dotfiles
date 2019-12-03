@@ -15,7 +15,7 @@
    :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}
   :kibit
   {:extra-deps
-   {tvaughan/kibit-runner {:mvn/version "0.2.2"}}
+   {tvaughan/kibit-runner {:mvn/version "0.2.3"}}
    :main-opts ["-m" "kibit-runner.cmdline"]}
   :lint
   {:extra-deps
