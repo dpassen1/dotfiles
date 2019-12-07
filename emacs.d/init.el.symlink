@@ -107,42 +107,23 @@
   :bind   ("C-c w" . er/expand-region)
   :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
 
+(use-package find-file-in-repository
+  :ensure t
+  :pin    melpa-stable
+  :defer  t
+  :bind   ("C-x M-f" . find-file-in-repository))
+
 (use-package ffap
   :bind   ("M-g f" . ffap-other-window))
-
-(use-package fzf
-  :ensure t
-  :pin    melpa
-  :bind   ("C-x M-f" . fzf-git)
-  :init   (setenv "FZF_DEFAULT_COMMAND" "rg --files"))
 
 (use-package git-timemachine
   :ensure t
   :pin    melpa-stable
   :defer  t)
 
-(use-package golden-ratio
-  :ensure   t
-  :pin      melpa
-  :diminish golden-ratio-mode
-  :config   (golden-ratio-mode)
-            (add-to-list 'window-size-change-functions 'golden-ratio))
-
 (use-package hideshow
   :diminish hs-minor-mode
   :hook     (prog-mode . hs-minor-mode))
-
-(use-package hide-mode-line
-  :ensure t
-  :pin    melpa-stable
-  :hook   (vterm-mode . hide-mode-line-mode))
-
-(use-package ido-vertical-mode
-  :ensure t
-  :pin    melpa
-  :defer  t
-  :init   (ido-vertical-mode t)
-  :config (setq ido-vertical-define-keys 'C-n-C-p-up-and-down))
 
 (use-package magit
   :ensure t
@@ -233,6 +214,13 @@
   :pin    melpa
   :config (load-theme 'zerodark t))
 
+(use-package zoom
+  :ensure   t
+  :pin      melpa
+  :diminish zoom-mode
+  :config   (setq zoom-size '(0.618 . 0.618))
+            (zoom-mode t))
+
 ;; Prevent loading screen
 (setq-default inhibit-startup-screen t)
 
@@ -282,3 +270,6 @@
 
 ;; Set frame title to the buffer name
 (setq-default frame-title-format '("%b - emacs"))
+
+;; Keep layout consistent
+(setq max-mini-window-height 1)
