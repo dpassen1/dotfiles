@@ -80,6 +80,9 @@
   :ensure t
   :pin    melpa-stable)
 
+(use-package display-line-numbers
+  :hook (prog-mode . display-line-numbers-mode))
+
 (use-package dockerfile-mode
   :ensure t
   :pin    melpa
@@ -146,9 +149,6 @@
   :ensure t
   :pin    melpa-stable
   :hook   ((cider-repl-mode clojure-mode emacs-lisp-mode) . paredit-mode))
-
-(use-package prog-mode
-  :config (add-hook 'prog-mode-hook #'display-line-numbers-mode))
 
 (use-package rainbow-delimiters
   :ensure t
