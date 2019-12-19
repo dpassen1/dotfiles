@@ -42,9 +42,9 @@
             (setq cider-repl-history-file         repl-history-file
                   cider-save-file-on-load         t
                   cider-repl-display-help-banner  nil
-                  cider-repl-use-pretty-printing  t
                   cider-mode-line-show-connection nil
-                  cider-use-fringe-indicators     nil)))
+                  cider-use-fringe-indicators     nil
+                  cider-switch-to-repl-on-insert  nil)))
 
 (use-package clojure-mode
   :ensure t
