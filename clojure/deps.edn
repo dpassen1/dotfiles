@@ -29,5 +29,5 @@
    :main-opts ["-m" "depot.outdated.main"]}
   :uberjar
   {:extra-deps
-   {uberdeps {:mvn/version "0.1.6"}}
+   {uberdeps {:mvn/version "0.1.7"}}
    :main-opts ["-m" "uberdeps.uberjar"]}}}
