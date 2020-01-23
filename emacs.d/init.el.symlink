@@ -150,11 +150,6 @@
   :pin    melpa-stable
   :hook   ((cider-repl-mode clojure-mode emacs-lisp-mode) . paredit-mode))
 
-(use-package rainbow-delimiters
-  :ensure t
-  :pin    melpa-stable
-  :hook   ((cider-repl-mode prog-mode) . rainbow-delimiters-mode))
-
 (use-package restclient
   :ensure t
   :pin    melpa
