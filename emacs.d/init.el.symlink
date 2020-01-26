@@ -62,7 +62,7 @@
   :pin      melpa-stable
   :defer    t
   :diminish company-mode
-  :hook     ((cider-repl-mode cider-mode) . company-mode))
+  :hook     ((prog-mode cider-repl-mode) . company-mode))
 
 (use-package deadgrep
   :ensure t
