@@ -1,6 +1,7 @@
 aspell
 bat
 cksfv
+clj-kondo
 clojure
 cmake
 emacs
