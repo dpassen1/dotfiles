@@ -11,7 +11,7 @@
    :main-opts ["-m" "cloverage.coverage" "-p" "src" "-s" "test"]}
   :eastwood
   {:extra-deps
-   {jonase/eastwood {:mvn/version "0.3.6"}}
+   {jonase/eastwood {:mvn/version "0.3.7"}}
    :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}
   :kibit
   {:extra-deps
