@@ -182,7 +182,8 @@
   :pin    melpa
   :defer  t
   :bind   ("C-x RET" . vterm-other-window)
-  :config (setq-default vterm-exit-functions (lambda (buf evt) (when buf (kill-buffer-and-window))))
+  :config (setq-default vterm-exit-functions (lambda (buf evt)
+                                               (when buf (ignore-errors (kill-buffer-and-window)))))
   :custom (vterm-install t))
 
 (use-package web-mode
