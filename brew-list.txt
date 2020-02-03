@@ -19,6 +19,7 @@ lumo
 markdown
 maven
 mg
+moreutils
 mosh
 nmap
 node
