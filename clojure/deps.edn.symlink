@@ -12,7 +12,8 @@
   :eastwood
   {:extra-deps
    {jonase/eastwood {:mvn/version "0.3.7"}}
-   :main-opts ["-m" "eastwood.lint" "{:source-paths,[\"src\"]}"]}
+   :main-opts ["-m" "eastwood.lint" {:source-paths ["src"]
+                                     :add-linters  [:unused-namespaces]}]}
   :kibit
   {:extra-deps
    {tvaughan/kibit-runner {:mvn/version "0.2.3"}}
