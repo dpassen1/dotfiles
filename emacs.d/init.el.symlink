@@ -50,7 +50,8 @@
   :ensure t
   :pin    melpa-stable
   :defer  t
-  :config (setq clojure-align-forms-automatically t))
+  :config (setq clojure-align-forms-automatically t)
+          (require 'flycheck-clj-kondo))
 
 (use-package cloud-theme
   :ensure t
@@ -118,6 +119,18 @@
 
 (use-package ffap
   :bind   ("M-g f" . ffap-other-window))
+
+(use-package flycheck
+  :ensure   t
+  :pin      melpa-stable
+  :defer    t
+  :diminish flycheck-mode
+  :hook     (prog-mode . flycheck-mode))
+
+(use-package flycheck-clj-kondo
+  :ensure t
+  :pin    melpa
+  :defer  t)
 
 (use-package git-timemachine
   :ensure t
