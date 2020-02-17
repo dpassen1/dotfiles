@@ -1,11 +1,4 @@
-{:user {:plugins      [[com.gfredericks/how-to-ns         "0.2.6"]
-                       [com.jakemccrary/lein-test-refresh "0.24.1"]
-                       [jonase/eastwood                   "0.3.7"]
+{:user {:plugins      [[com.jakemccrary/lein-test-refresh "0.24.1"]
                        [lein-ancient                      "0.6.15"]
-                       [lein-bikeshed                     "0.5.2"]
-                       [lein-cljfmt                       "0.6.6"]
-                       [lein-kibit                        "0.1.8"]
-                       [lein-try                          "0.4.3"]
-                       [venantius/yagni                   "0.1.7"]]
-        :eastwood     {:add-linters [:unused-namespaces]}
+                       [lein-try                          "0.4.3"]]
         :test-refresh {:quiet true}}}
