@@ -1,0 +1,6 @@
+adoptopenjdk/openjdk
+borkdude/brew
+devlocker/tap
+homebrew/cask
+homebrew/core
+homebrew/services
