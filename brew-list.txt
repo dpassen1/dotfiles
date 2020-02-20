@@ -31,6 +31,7 @@ shellcheck
 tmux
 trash
 tree
+tychus
 unrar
 watch
 wget
