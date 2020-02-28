@@ -1,5 +1,6 @@
 adoptopenjdk/openjdk
 borkdude/brew
+clojure/tools
 devlocker/tap
 homebrew/cask
 homebrew/core

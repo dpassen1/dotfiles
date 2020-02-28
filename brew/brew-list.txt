@@ -2,7 +2,7 @@ aspell
 bat
 cksfv
 clj-kondo
-clojure
+clojure/tools/clojure
 cmake
 emacs
 entr
