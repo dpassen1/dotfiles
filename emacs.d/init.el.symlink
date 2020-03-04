@@ -253,7 +253,8 @@
   (set-face-attribute 'default t :font default-font))
 
 ;; Stop customize from writing to this file
-(setq custom-file (make-temp-file "emacs-custom"))
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file 'noerror)
 
 ;; Nice initial size
 (when (display-graphic-p)
