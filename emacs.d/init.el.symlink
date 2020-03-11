@@ -97,6 +97,13 @@
           ("M-g b" . dumb-jump-back))
   :config (setq dumb-jump-prefer-searcher 'rg))
 
+(use-package editorconfig
+  :ensure   t
+  :pin      melpa
+  :defer    t
+  :diminish editorconfig-mode
+  :hook     (prog-mode . editorconfig-mode))
+
 (use-package emmet-mode
   :ensure t
   :pin    melpa
