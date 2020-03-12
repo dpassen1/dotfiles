@@ -248,9 +248,6 @@
 ;; Stop flashing!
 (setq ring-bell-function 'ignore)
 
-;; trim trailing whitespace on saves
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; I just tripled my productivity
 (defalias 'yes-or-no-p 'y-or-n-p)
 
