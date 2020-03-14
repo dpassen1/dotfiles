@@ -148,6 +148,11 @@
   :diminish hs-minor-mode
   :hook     (prog-mode . hs-minor-mode))
 
+(use-package kubel
+  :ensure t
+  :pin    melpa
+  :defer  t)
+
 (use-package magit
   :ensure t
   :pin    melpa-stable
