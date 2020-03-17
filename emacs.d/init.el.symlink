@@ -166,6 +166,11 @@
 (use-package menu-item
   :bind ("C-x k" . kill-this-buffer))
 
+(use-package modus-operandi-theme
+  :ensure t
+  :pin    melpa-stable
+  :config (load-theme 'modus-operandi t))
+
 (use-package org
   :init (add-hook 'org-mode-hook #'org-indent-mode)
         (add-hook 'org-mode-hook #'visual-line-mode))
@@ -232,7 +237,7 @@
 (use-package zerodark-theme
   :ensure t
   :pin    melpa
-  :config (load-theme 'zerodark t))
+  :defer  t)
 
 (use-package zoom
   :ensure   t
