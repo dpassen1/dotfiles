@@ -53,11 +53,6 @@
   :config (setq clojure-align-forms-automatically t)
           (require 'flycheck-clj-kondo))
 
-(use-package cloud-theme
-  :ensure t
-  :pin    melpa
-  :defer  t)
-
 (use-package company
   :ensure   t
   :pin      melpa-stable
@@ -232,11 +227,6 @@
 (use-package yaml-mode
   :ensure t
   :pin    melpa-stable
-  :defer  t)
-
-(use-package zerodark-theme
-  :ensure t
-  :pin    melpa
   :defer  t)
 
 (use-package zoom
