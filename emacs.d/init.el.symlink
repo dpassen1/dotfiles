@@ -3,12 +3,14 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-pinned-packages '((use-package . "melpa-stable")))
+(setq package-pinned-packages '((use-package . "melpa-stable")
+                                (diminish    . "melpa-stable")))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package))
+  (package-install 'use-package)
+  (package-install 'diminish))
 
 (eval-when-compile
   (require 'use-package))
@@ -71,10 +73,6 @@
   :bind   (("C-M-+" . default-text-scale-increase)
            ("C-M--" . default-text-scale-decrease)
            ("C-M-0" . default-text-scale-reset)))
-
-(use-package diminish
-  :ensure t
-  :pin    melpa-stable)
 
 (use-package display-line-numbers
   :hook (prog-mode . display-line-numbers-mode))
