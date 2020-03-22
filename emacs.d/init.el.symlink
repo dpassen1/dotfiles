@@ -134,11 +134,6 @@
   :pin    melpa
   :defer  t)
 
-(use-package git-timemachine
-  :ensure t
-  :pin    melpa-stable
-  :defer  t)
-
 (use-package hideshow
   :diminish hs-minor-mode
   :hook     (prog-mode . hs-minor-mode))
