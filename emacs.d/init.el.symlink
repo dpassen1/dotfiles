@@ -184,8 +184,7 @@
   :bind   ("M-x" . smex))
 
 (use-package sql-mode
-  :mode (("\\.sql" . sql-mode)
-         ("\\.ddl" . sql-mode)))
+  :mode ("\\.sql" "\\.ddl"))
 
 (use-package subword
   :diminish subword-mode
