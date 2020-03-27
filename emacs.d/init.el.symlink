@@ -29,7 +29,6 @@
 (use-package blacken
   :ensure   t
   :pin      melpa
-  :defer    t
   :diminish blacken-mode
   :config   (setq blacken-line-length               80
                   blacken-skip-string-normalization 't)
@@ -58,7 +57,6 @@
 (use-package company
   :ensure   t
   :pin      melpa-stable
-  :defer    t
   :diminish company-mode
   :hook     ((prog-mode cider-repl-mode) . company-mode))
 
@@ -93,7 +91,6 @@
 (use-package editorconfig
   :ensure   t
   :pin      melpa
-  :defer    t
   :diminish editorconfig-mode
   :hook     (prog-mode . editorconfig-mode))
 
@@ -114,16 +111,14 @@
 (use-package find-file-in-repository
   :ensure t
   :pin    melpa-stable
-  :defer  t
   :bind   ("C-x M-f" . find-file-in-repository))
 
 (use-package ffap
-  :bind   ("M-g f" . ffap-other-window))
+  :bind ("M-g f" . ffap-other-window))
 
 (use-package flycheck
   :ensure   t
   :pin      melpa-stable
-  :defer    t
   :diminish flycheck-mode
   :hook     (prog-mode . flycheck-mode))
 
@@ -191,16 +186,16 @@
   :hook     ((cider-repl-mode clojure-mode js2-mode python-mode) . subword-mode))
 
 (use-package view
-  :bind   (("C-v" . View-scroll-half-page-forward)
-           ("M-v" . View-scroll-half-page-backward)))
+  :bind (("C-v" . View-scroll-half-page-forward)
+         ("M-v" . View-scroll-half-page-backward)))
 
 (use-package vterm
   :ensure t
   :pin    melpa
-  :defer  t
   :bind   ("C-x RET" . vterm-other-window)
-  :config (setq-default vterm-exit-functions (lambda (buf evt)
-                                               (when buf (ignore-errors (kill-buffer-and-window)))))
+  :config (setq-default vterm-exit-functions
+                        (lambda (buf evt)
+                          (when buf (ignore-errors (kill-buffer-and-window)))))
   :custom (vterm-install t))
 
 (use-package web-mode
