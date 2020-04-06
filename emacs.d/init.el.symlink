@@ -108,6 +108,12 @@
   :bind   ("C-c w" . er/expand-region)
   :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
 
+(use-package feebleline
+  :ensure t
+  :pin    melpa
+  :when   (display-graphic-p)
+  :config (feebleline-mode))
+
 (use-package find-file-in-repository
   :ensure t
   :pin    melpa-stable
