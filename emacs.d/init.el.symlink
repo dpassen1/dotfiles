@@ -137,6 +137,10 @@
   :diminish hs-minor-mode
   :hook     (prog-mode . hs-minor-mode))
 
+(use-package ido
+  :config (setcar (nthcdr 0 ido-decorations) "")
+          (setcar (nthcdr 1 ido-decorations) ""))
+
 (use-package kubel
   :ensure t
   :pin    melpa
