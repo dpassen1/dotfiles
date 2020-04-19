@@ -42,21 +42,6 @@ chpwd () {
     print -Pn "\e]2; %~/ \a"
 }
 
-__start-emacs-with-title () {
-  echo -ne "\033]0;$1\007"
-  emacsclient -nw -c -s $1
-}
-
-emacs-start () {
-  emacs --daemon=${PWD##*/}
-  __start-emacs-with-title ${PWD##*/}
-}
-
-emacs-select () {
-  DAEMON=$(ps -ewwo command | grep "^emacs.*daemon=." | cut -d= -f2 | fzf)
-  __start-emacs-with-title $DAEMON
-}
-
 nfocat () {
   iconv -f cp437 "$@"
 }
