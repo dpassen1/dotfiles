@@ -100,13 +100,12 @@
   :config (setq emmet-preview-default nil)
   :bind   (:map emmet-mode-keymap
            ("C-c w" . nil))
-  :hook   (rjsx-mode web-mode))
+  :hook   web-mode)
 
 (use-package expand-region
   :ensure t
   :pin    melpa
-  :bind   ("C-c w" . er/expand-region)
-  :config (er/enable-mode-expansions 'rjsx-mode 'er/add-html-mode-expansions))
+  :bind   ("C-c w" . er/expand-region))
 
 (use-package feebleline
   :ensure t
@@ -178,11 +177,6 @@
   :pin    melpa
   :defer  t)
 
-(use-package rjsx-mode
-  :ensure t
-  :pin    melpa-stable
-  :mode   "\\.js[x]?\\'")
-
 (use-package smex
   :ensure t
   :pin    melpa-stable
@@ -213,7 +207,7 @@
 (use-package web-mode
   :ensure t
   :pin    melpa-stable
-  :mode   "\\.html?\\'"
+  :mode   ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
   :config (setq web-mode-enable-auto-closing  t
                 web-mode-markup-indent-offset 2))
 
