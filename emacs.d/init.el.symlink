@@ -30,8 +30,7 @@
   :ensure   t
   :pin      melpa
   :diminish blacken-mode
-  :config   (setq blacken-line-length               80
-                  blacken-skip-string-normalization 't)
+  :config   (setq blacken-only-if-project-is-blackened t)
   :hook     (python-mode . blacken-mode))
 
 (use-package cider
