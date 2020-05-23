@@ -259,6 +259,7 @@
 
 ;; Just stop it
 (setq confirm-kill-processes nil)
+(setq kill-buffer-query-functions nil)
 
 ;; Use ligatures when available
 (when (fboundp 'mac-auto-operator-composition-mode)
