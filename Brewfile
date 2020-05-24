@@ -8,6 +8,7 @@ tap "homebrew/core"
 
 brew "aspell"
 brew "bat"
+brew "black"
 brew "cksfv"
 brew "cmake"
 brew "emacs"
