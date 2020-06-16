@@ -16,5 +16,8 @@
   lasttouched = "!lt() { git branch -r | grep -v ' -> ' | while read -r branch; do echo "$branch"; git log --pretty=format:"%cr" "$branch" -n 1; echo; done; }; lt"
   lt = !git lasttouched
 
+[pull]
+  ff = only
+
 [github]
   user = dpassen
