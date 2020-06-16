@@ -46,7 +46,7 @@ brew "yarn"
 brew "zsh"
 
 brew "borkdude/brew/clj-kondo"
-brew "clojure/tools/clojure", args: ["devel"]
+brew "clojure/tools/clojure"
 brew "devlocker/tap/tychus"
 
 cask "adoptopenjdk8"
