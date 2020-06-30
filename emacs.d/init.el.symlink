@@ -154,9 +154,6 @@
   :pin    melpa-stable
   :defer  t)
 
-(use-package menu-item
-  :bind ("C-x k" . kill-this-buffer))
-
 (use-package modus-operandi-theme
   :ensure t
   :pin    melpa-stable
@@ -199,7 +196,7 @@
   :bind   ("C-x RET" . vterm-other-window)
   :config (setq-default vterm-exit-functions
                         (lambda (buf evt)
-                          (when buf (ignore-errors (kill-buffer-and-window))))
+                          (when buf (dp/kill-buffer-and-window)))
                         vterm-clear-scrollback-when-clearing 't)
   :custom (vterm-always-compile-module t))
 
@@ -279,3 +276,11 @@
 
 ;; Keep layout consistent
 (setq max-mini-window-height 1)
+
+;; Kill buffers and windows
+(defun dp/kill-buffer-and-window ()
+  (interactive)
+  (ignore-errors (kill-buffer-and-window)))
+
+(require 'bind-key)
+(bind-key "C-x k" 'dp/kill-buffer-and-window)
