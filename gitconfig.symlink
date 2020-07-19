@@ -19,5 +19,8 @@
 [pull]
   ff = only
 
+[rerere]
+  enabled = true
+
 [github]
   user = dpassen
