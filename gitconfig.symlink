@@ -2,6 +2,15 @@
   name = Derek Passen
   email = dpassen1@gmail.com
 
+[init]
+  defaultBranch = main
+
+[pull]
+  ff = only
+
+[rerere]
+  enabled = true
+
 [alias]
   st = status
   ci = commit
@@ -15,12 +24,6 @@
   su = !git standup
   lasttouched = "!lt() { git branch -r | grep -v ' -> ' | while read -r branch; do echo "$branch"; git log --pretty=format:"%cr" "$branch" -n 1; echo; done; }; lt"
   lt = !git lasttouched
-
-[pull]
-  ff = only
-
-[rerere]
-  enabled = true
 
 [github]
   user = dpassen
