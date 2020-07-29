@@ -3,7 +3,7 @@
   {:extra-deps
    {athos/clj-check
     {:git/url "https://github.com/athos/clj-check.git"
-     :sha     "46214bb33fccf30df797fc15ad818f7151f3f44c"}}
+     :sha     "0f734f560dd989b2ec0f9078cc646476bfdab4e1"}}
    :main-opts ["-m" "clj-check.check"]}
   :outdated
   {:extra-deps
