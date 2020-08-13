@@ -44,7 +44,8 @@
                   cider-repl-display-help-banner  nil
                   cider-mode-line-show-connection nil
                   cider-use-fringe-indicators     nil
-                  cider-switch-to-repl-on-insert  nil)))
+                  cider-switch-to-repl-on-insert  nil
+                  cider-prompt-for-symbol         nil)))
 
 (use-package clojure-mode
   :ensure t
