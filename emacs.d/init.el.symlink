@@ -83,9 +83,9 @@
 (use-package dumb-jump
   :ensure t
   :pin    melpa-stable
-  :bind  (("M-g o" . dumb-jump-go-other-window)
-          ("M-g j" . dumb-jump-go)
-          ("M-g b" . dumb-jump-back))
+  :bind   (("M-g o" . dumb-jump-go-other-window)
+           ("M-g j" . dumb-jump-go)
+           ("M-g b" . dumb-jump-back))
   :config (setq dumb-jump-prefer-searcher 'rg))
 
 (use-package editorconfig
