@@ -83,10 +83,8 @@
 (use-package dumb-jump
   :ensure t
   :pin    melpa
-  :bind   (("M-g o" . dumb-jump-go-other-window)
-           ("M-g j" . dumb-jump-go)
-           ("M-g b" . dumb-jump-back))
-  :config (setq dumb-jump-prefer-searcher 'rg))
+  :config (setq dumb-jump-prefer-searcher 'rg)
+          (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package editorconfig
   :ensure   t
