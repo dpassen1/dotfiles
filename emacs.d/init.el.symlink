@@ -278,6 +278,7 @@
 
 ;; Kill buffers and windows
 (defun dp/kill-buffer-and-window ()
+  "Kill buffer and window without propagating any errors."
   (interactive)
   (ignore-errors (kill-buffer-and-window)))
 
