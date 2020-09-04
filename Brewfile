@@ -48,6 +48,7 @@ brew "yarn"
 brew "zsh"
 
 brew "borkdude/brew/clj-kondo"
+brew "borkdude/brew/jet"
 brew "clojure/tools/clojure"
 brew "devlocker/tap/tychus"
 
