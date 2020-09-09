@@ -158,10 +158,6 @@
   :pin    melpa-stable
   :config (load-theme 'modus-operandi t))
 
-(use-package org
-  :init (add-hook 'org-mode-hook #'org-indent-mode)
-        (add-hook 'org-mode-hook #'visual-line-mode))
-
 (use-package paredit
   :ensure t
   :pin    melpa-stable
