@@ -286,4 +286,11 @@
 (bind-key "C-x k" 'dp/kill-buffer-and-window)
 
 ;; Collect garbage on your time, not on mine
-(add-hook 'focus-out-hook 'garbage-collect)
+(require 'frame)
+
+(defun dp/garbage-collect ()
+  "Collect garbage when the frame is known to have lost focus."
+  (unless (frame-focus-state)
+    (garbage-collect)))
+
+(add-function :after after-focus-change-function #'dp/garbage-collect)
