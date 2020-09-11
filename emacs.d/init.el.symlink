@@ -131,7 +131,8 @@
 (use-package magit
   :ensure t
   :pin    melpa
-  :bind   ("C-x g" . magit-status))
+  :bind   (("C-x g" . magit-status)
+           ("C-c g" . magit-file-dispatch)))
 
 (use-package markdown-mode
   :ensure t
