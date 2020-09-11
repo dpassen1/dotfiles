@@ -107,9 +107,6 @@
   :pin    melpa-stable
   :bind   ("C-x M-f" . find-file-in-repository))
 
-(use-package ffap
-  :bind ("M-g f" . ffap-other-window))
-
 (use-package flycheck
   :ensure t
   :pin    melpa-stable
@@ -162,9 +159,6 @@
   :pin    melpa-stable
   :bind   ("M-x" . smex)
   :config (setq smex-prompt-string ""))
-
-(use-package sql-mode
-  :mode ("\\.sql" "\\.ddl"))
 
 (use-package subword
   :hook ((cider-repl-mode clojure-mode js2-mode python-mode) . subword-mode))
