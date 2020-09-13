@@ -161,7 +161,7 @@
   :config (setq smex-prompt-string ""))
 
 (use-package subword
-  :hook ((cider-repl-mode clojure-mode js2-mode python-mode) . subword-mode))
+  :hook ((cider-repl-mode clojure-mode python-mode web-mode) . subword-mode))
 
 (use-package view
   :bind (("C-v" . View-scroll-half-page-forward)
