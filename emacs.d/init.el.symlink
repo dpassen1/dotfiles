@@ -149,6 +149,13 @@
   :pin    melpa-stable
   :hook   ((cider-repl-mode clojure-mode emacs-lisp-mode) . paredit-mode))
 
+(use-package perspective
+  :ensure t
+  :pin    melpa-stable
+  :config (persp-mode)
+  :custom (persp-sort 'access)
+          (persp-mode-prefix-key (kbd "C-x C-x")))
+
 (use-package restclient
   :ensure t
   :pin    melpa
