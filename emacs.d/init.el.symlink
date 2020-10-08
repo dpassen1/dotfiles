@@ -22,7 +22,7 @@
 (use-package blacken
   :ensure t
   :pin    melpa
-  :config (setq blacken-only-if-project-is-blackened t)
+  :custom (blacken-only-if-project-is-blackened t)
   :hook   (python-mode . blacken-mode))
 
 (use-package cider
@@ -31,20 +31,18 @@
   :defer  t
   :config (let* ((default-directory (clojure-project-dir))
                  (repl-history-file (expand-file-name ".cider-repl-history")))
-            (setq cider-repl-history-file         repl-history-file
-                  cider-save-file-on-load         t
-                  cider-repl-display-help-banner  nil
-                  cider-mode-line-show-connection nil
-                  cider-use-fringe-indicators     nil
-                  cider-switch-to-repl-on-insert  nil
-                  cider-prompt-for-symbol         nil)))
+            (setq cider-repl-history-file repl-history-file))
+  :custom (cider-save-file-on-load t)
+          (cider-repl-display-help-banner nil)
+          (cider-use-fringe-indicators nil)
+          (cider-prompt-for-symbol nil))
 
 (use-package clojure-mode
   :ensure t
   :pin    melpa-stable
   :defer  t
-  :config (setq clojure-align-forms-automatically t)
-          (require 'flycheck-clj-kondo))
+  :config (require 'flycheck-clj-kondo)
+  :custom (clojure-align-forms-automatically t))
 
 (use-package company
   :ensure t
@@ -74,8 +72,8 @@
 (use-package dumb-jump
   :ensure t
   :pin    melpa
-  :config (setq dumb-jump-prefer-searcher 'rg)
-          (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+  :config (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  :custom (dumb-jump-prefer-searcher 'rg))
 
 (use-package editorconfig
   :ensure t
@@ -85,7 +83,7 @@
 (use-package emmet-mode
   :ensure t
   :pin    melpa
-  :config (setq emmet-preview-default nil)
+  :custom (emmet-preview-default nil)
   :bind   (:map emmet-mode-keymap
            ("C-c w" . nil))
   :hook   web-mode)
@@ -165,7 +163,7 @@
   :ensure t
   :pin    melpa-stable
   :bind   ("M-x" . smex)
-  :config (setq smex-prompt-string ""))
+  :custom (smex-prompt-string ""))
 
 (use-package subword
   :hook ((cider-repl-mode clojure-mode python-mode web-mode) . subword-mode))
@@ -180,21 +178,21 @@
   :bind   ("C-x RET" . vterm-other-window)
   :config (setq-default vterm-exit-functions
                         (lambda (buf evt)
-                          (when buf (dp/kill-buffer-and-window)))
-                        vterm-clear-scrollback-when-clearing 't)
-  :custom (vterm-always-compile-module t))
+                          (when buf (dp/kill-buffer-and-window))))
+  :custom (vterm-always-compile-module t)
+          (vterm-clear-scrollback-when-clearing t))
 
 (use-package web-mode
   :ensure t
   :pin    melpa-stable
   :mode   ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
-  :config (setq web-mode-enable-auto-closing  t
-                web-mode-markup-indent-offset 2))
+  :custom (web-mode-enable-auto-closing t)
+          (web-mode-markup-indent-offset 2))
 
 (use-package whitespace
-  :init (setq whitespace-line-column 80
-              whitespace-style       '(face trailing lines-tail tabs))
-  :hook (prog-mode . whitespace-mode))
+  :custom (whitespace-line-column 80)
+          (whitespace-style '(face trailing lines-tail tabs))
+  :hook   (prog-mode . whitespace-mode))
 
 (use-package yaml-mode
   :ensure t
@@ -204,8 +202,8 @@
 (use-package zoom
   :ensure t
   :pin    melpa
-  :config (setq zoom-size '(0.618 . 0.618))
-          (zoom-mode t))
+  :config (zoom-mode t)
+  :custom (zoom-size '(0.618 . 0.618)))
 
 ;; Prevent loading screen
 (setq-default inhibit-startup-screen t)
