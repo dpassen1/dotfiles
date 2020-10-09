@@ -178,9 +178,9 @@
   :ensure t
   :pin    melpa
   :bind   ("C-x RET" . vterm-other-window)
-  :config (setq-default vterm-exit-functions
-                        (lambda (buf evt)
-                          (when buf (dp/kill-buffer-and-window))))
+  :config (setq vterm-exit-functions
+                (lambda (buf evt)
+                  (when buf (dp/kill-buffer-and-window))))
   :custom (vterm-always-compile-module t)
           (vterm-clear-scrollback-when-clearing t))
 
