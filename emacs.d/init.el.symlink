@@ -1,4 +1,7 @@
-;;; -*- mode: Emacs-Lisp; lexical-binding: t;-*-
+;;; init.el --- Initialization code ;;; -*- mode: Emacs-Lisp; lexical-binding: t;-*-
+;;; Commentary:
+
+;;; Code:
 
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
@@ -275,3 +278,7 @@
     (garbage-collect)))
 
 (add-function :after after-focus-change-function #'dp/garbage-collect)
+
+(provide 'init)
+
+;;; init.el ends here
