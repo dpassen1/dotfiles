@@ -32,9 +32,8 @@
   :ensure t
   :pin    melpa-stable
   :defer  t
-  :config (let* ((default-directory (clojure-project-dir))
-                 (repl-history-file (expand-file-name ".cider-repl-history")))
-            (setq cider-repl-history-file repl-history-file))
+  :config (setq cider-repl-history-file
+                (expand-file-name ".cider-repl-history" (clojure-project-dir)))
   :custom (cider-save-file-on-load t)
           (cider-repl-display-help-banner nil)
           (cider-use-fringe-indicators nil)
