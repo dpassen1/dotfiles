@@ -243,7 +243,7 @@
 
 ;; Various tweaks needed for railwaycat's emacs port
 (when (and (eq system-type 'darwin) (display-graphic-p))
-  (menu-bar-mode 't)
+  (menu-bar-mode t)
   (setq mac-option-modifier  'meta
         mac-command-modifier nil))
 
