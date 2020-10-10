@@ -213,9 +213,6 @@
 ;; Spaces only (no tab characters at all)!
 (setq-default indent-tabs-mode nil)
 
-;; Always show column numbers.
-(setq-default column-number-mode t)
-
 ;; Stop flashing!
 (setq ring-bell-function 'ignore)
 
