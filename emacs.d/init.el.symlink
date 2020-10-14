@@ -233,7 +233,7 @@
 
 (leaf dp
   :bind ("C-x k" . dp/kill-buffer-and-window)
-  :config (add-function :after after-focus-change-function #'dp/garbage-collect))
+  :init (add-function :after after-focus-change-function #'dp/garbage-collect))
 
 (provide 'init)
 
