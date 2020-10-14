@@ -226,15 +226,13 @@
   (interactive)
   (ignore-errors (kill-buffer-and-window)))
 
-(leaf dp
-  :bind ("C-x k" . dp/kill-buffer-and-window))
-
 (defun dp/garbage-collect ()
   "Collect garbage when the frame is known to have lost focus."
   (unless (frame-focus-state)
     (garbage-collect)))
 
-(leaf garbage
+(leaf dp
+  :bind ("C-x k" . dp/kill-buffer-and-window)
   :config (add-function :after after-focus-change-function #'dp/garbage-collect))
 
 (provide 'init)
