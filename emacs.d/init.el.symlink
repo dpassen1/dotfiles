@@ -3,277 +3,231 @@
 
 ;;; Code:
 
-(require 'package)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa"        . "https://melpa.org/packages/"))
-(setq package-pinned-packages '((use-package . "melpa-stable")))
+(eval-and-compile
+  (customize-set-variable
+   'package-archives '(("org" . "https://orgmode.org/elpa/")
+                       ("melpa" . "https://melpa.org/packages/")
+                       ("gnu" . "https://elpa.gnu.org/packages/")))
+  (package-initialize)
+  (unless (package-installed-p 'leaf)
+    (package-refresh-contents)
+    (package-install 'leaf))
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+  (leaf leaf-keywords
+    :ensure t
+    :config (leaf-keywords-init)))
 
-(eval-when-compile
-  (require 'use-package))
+(leaf emacs
+  :custom ((confirm-kill-processes . nil)
+           (indent-tabs-mode . nil)
+           (inhibit-startup-screen . t)
+           (max-mini-window-height . 1)
+           (read-quoted-char-radix . 16)
+           (ring-bell-function . 'ignore))
+  :setq ((frame-title-format . '("%b - emacs"))
+         (kill-buffer-query-functions . nil))
+  :config (defalias 'yes-or-no-p 'y-or-n-p))
 
-(use-package autorevert
-  :config (global-auto-revert-mode t))
+(leaf autorevert
+  :global-minor-mode global-auto-revert-mode)
 
-(use-package better-defaults
+(leaf better-defaults
   :ensure t
-  :pin    melpa)
+  :require t)
 
-(use-package blacken
+(leaf blacken
   :ensure t
-  :pin    melpa
-  :custom (blacken-only-if-project-is-blackened t)
-  :hook   (python-mode . blacken-mode))
+  :custom (blacken-only-if-project-is-blackened . t)
+  :hook python-mode-hook)
 
-(use-package cider
+(leaf clojure
+  :config
+  (leaf clojure-mode
+    :custom ((clojure-align-forms-automatically . t)))
+  (leaf cider
+    :ensure t
+    :after clojure-mode
+    :custom ((cider-prompt-for-symbol . nil)
+             (cider-repl-display-help-banner . nil)
+             (cider-save-file-on-load . t)
+             (cider-use-fringe-indicators . nil))
+    :config (when (fboundp 'clojure-project-dir)
+              (setq cider-repl-history-file
+                    (expand-file-name ".cider-repl-history" (clojure-project-dir)))))
+  (leaf flycheck-clj-kondo
+    :ensure t
+    :require t
+    :after clojure-mode))
+
+(leaf company
   :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :config (setq cider-repl-history-file
-                (expand-file-name ".cider-repl-history" (clojure-project-dir)))
-  :custom (cider-save-file-on-load t)
-          (cider-repl-display-help-banner nil)
-          (cider-use-fringe-indicators nil)
-          (cider-prompt-for-symbol nil))
+  :hook (prog-mode-hook cider-repl-mode-hook))
 
-(use-package clojure-mode
+(leaf customize
+  :custom `(custom-file . ,(concat user-emacs-directory "custom.el"))
+  :config (load custom-file 'noerror))
+
+(leaf deadgrep
   :ensure t
-  :pin    melpa-stable
-  :defer  t
-  :config (require 'flycheck-clj-kondo)
-  :custom (clojure-align-forms-automatically t))
+  :bind ("C-c r" . deadgrep))
 
-(use-package company
+(leaf default-text-scale
   :ensure t
-  :pin    melpa-stable
-  :hook   ((prog-mode cider-repl-mode) . company-mode))
+  :bind (("C-M-+" . default-text-scale-increase)
+         ("C-M--" . default-text-scale-decrease)
+         ("C-M-0" . default-text-scale-reset)))
 
-(use-package deadgrep
+(leaf display-line-numbers
+  :hook prog-mode-hook)
+
+(leaf dumb-jump
   :ensure t
-  :pin    melpa-stable
-  :bind   ("C-c r" . deadgrep))
+  :custom (dumb-jump-prefer-searcher . 'rg)
+  :config (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-(use-package default-text-scale
+(leaf editorconfig
   :ensure t
-  :pin    melpa
-  :bind   (("C-M-+" . default-text-scale-increase)
-           ("C-M--" . default-text-scale-decrease)
-           ("C-M-0" . default-text-scale-reset)))
+  :hook prog-mode-hook)
 
-(use-package display-line-numbers
-  :hook (prog-mode . display-line-numbers-mode))
-
-(use-package dockerfile-mode
+(leaf emmet-mode
   :ensure t
-  :pin    melpa
-  :defer  t)
+  :custom (emmet-preview-default . nil)
+  :bind (emmet-mode-keymap
+         ("C-c w" . nil))
+  :hook (web-mode-hook . emmet-mode))
 
-(use-package dumb-jump
+(leaf expand-region
   :ensure t
-  :pin    melpa
-  :config (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-  :custom (dumb-jump-prefer-searcher 'rg))
+  :bind ("C-c w" . er/expand-region))
 
-(use-package editorconfig
+(leaf feebleline
   :ensure t
-  :pin    melpa
-  :hook   (prog-mode . editorconfig-mode))
+  :when (display-graphic-p)
+  :global-minor-mode feebleline-mode)
 
-(use-package emmet-mode
+(leaf find-file-in-repository
   :ensure t
-  :pin    melpa
-  :custom (emmet-preview-default nil)
-  :bind   (:map emmet-mode-keymap
-           ("C-c w" . nil))
-  :hook   web-mode)
+  :bind ("C-x M-f" . find-file-in-repository))
 
-(use-package expand-region
+(leaf flycheck
   :ensure t
-  :pin    melpa
-  :bind   ("C-c w" . er/expand-region))
+  :hook prog-mode-hook)
 
-(use-package feebleline
-  :ensure t
-  :pin    melpa
-  :when   (display-graphic-p)
-  :config (feebleline-mode))
+(leaf hideshow
+  :hook (prog-mode-hook . hs-minor-mode))
 
-(use-package find-file-in-repository
-  :ensure t
-  :pin    melpa-stable
-  :bind   ("C-x M-f" . find-file-in-repository))
+(leaf ido
+  :config
+  (setcar (nthcdr 0 ido-decorations) "")
+  (setcar (nthcdr 1 ido-decorations) ""))
 
-(use-package flycheck
-  :ensure t
-  :pin    melpa-stable
-  :hook   (prog-mode . flycheck-mode))
-
-(use-package flycheck-clj-kondo
-  :ensure t
-  :pin    melpa
-  :defer  t)
-
-(use-package hideshow
-  :hook (prog-mode . hs-minor-mode))
-
-(use-package ido
-  :config (setcar (nthcdr 0 ido-decorations) "")
-          (setcar (nthcdr 1 ido-decorations) ""))
-
-(use-package kubel
-  :ensure t
-  :pin    melpa
-  :defer  t)
-
-(use-package magit
-  :ensure t
-  :pin    melpa
-  :bind   (("C-x g" . magit-status)
-           ("C-c g" . magit-file-dispatch)))
-
-(use-package markdown-mode
-  :ensure t
-  :pin    melpa-stable
-  :defer  t)
-
-(use-package modus-operandi-theme
-  :ensure t
-  :pin    melpa-stable
-  :config (load-theme 'modus-operandi t))
-
-(use-package paredit
-  :ensure t
-  :pin    melpa-stable
-  :hook   ((cider-repl-mode clojure-mode emacs-lisp-mode) . paredit-mode))
-
-(use-package perspective
-  :ensure t
-  :pin    melpa-stable
-  :config (persp-mode)
-  :custom (persp-sort 'access)
-          (persp-mode-prefix-key (kbd "C-x C-x")))
-
-(use-package restclient
-  :ensure t
-  :pin    melpa
-  :defer  t)
-
-(use-package smex
-  :ensure t
-  :pin    melpa-stable
-  :bind   ("M-x" . smex)
-  :custom (smex-prompt-string ""))
-
-(use-package subword
-  :hook ((cider-repl-mode clojure-mode python-mode web-mode) . subword-mode))
-
-(use-package view
-  :bind (("C-v" . View-scroll-half-page-forward)
-         ("M-v" . View-scroll-half-page-backward)))
-
-(use-package vterm
-  :ensure t
-  :pin    melpa
-  :bind   ("C-x RET" . vterm-other-window)
-  :config (setq vterm-exit-functions
-                (lambda (buf evt)
-                  (when buf (dp/kill-buffer-and-window))))
-  :custom (vterm-always-compile-module t)
-          (vterm-clear-scrollback-when-clearing t))
-
-(use-package web-mode
-  :ensure t
-  :pin    melpa-stable
-  :mode   ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
-  :custom (web-mode-enable-auto-closing t)
-          (web-mode-markup-indent-offset 2))
-
-(use-package whitespace
-  :custom (whitespace-line-column 80)
-          (whitespace-style '(face trailing lines-tail tabs))
-  :hook   (prog-mode . whitespace-mode))
-
-(use-package yaml-mode
-  :ensure t
-  :pin    melpa-stable
-  :defer  t)
-
-(use-package zoom
-  :ensure t
-  :pin    melpa
-  :config (zoom-mode t)
-  :custom (zoom-size '(0.618 . 0.618)))
-
-;; Prevent loading screen
-(setq-default inhibit-startup-screen t)
-
-;; Spaces only (no tab characters at all)!
-(setq-default indent-tabs-mode nil)
-
-;; Stop flashing!
-(setq ring-bell-function 'ignore)
-
-;; I just tripled my productivity
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Pragmata Pro is my preferred font
-(let ((default-font "PragmataPro Liga 12"))
-  (add-to-list 'default-frame-alist `(font . ,default-font))
-  (set-face-attribute 'default t :font default-font))
-
-;; Stop customize from writing to this file
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file 'noerror)
-
-;; Nice initial size
-(when (display-graphic-p)
+(leaf initial-size
+  :when (display-graphic-p)
+  :config
   (add-to-list 'default-frame-alist '(height . 50))
   (add-to-list 'default-frame-alist '(width . 120)))
 
-;; Just stop it
-(setq confirm-kill-processes nil)
-(setq kill-buffer-query-functions nil)
+(leaf ligatures
+  :when (fboundp 'mac-auto-operator-composition-mode)
+  :global-minor-mode mac-auto-operator-composition-mode)
 
-;; Use ligatures when available
-(when (fboundp 'mac-auto-operator-composition-mode)
-  (mac-auto-operator-composition-mode))
+(leaf magit
+  :ensure t
+  :bind (("C-x g" . magit-status)
+         ("C-c g" . magit-file-dispatch)))
 
-;; Various tweaks needed for railwaycat's emacs port
-(when (and (eq system-type 'darwin) (display-graphic-p))
-  (menu-bar-mode t)
-  (setq mac-option-modifier  'meta
-        mac-command-modifier nil))
+(leaf markdown-mode
+  :ensure t)
 
-;; Enter Unicode characters using hex
-(setq read-quoted-char-radix 16)
+(leaf modus-operandi-theme
+  :ensure t
+  :config (load-theme 'modus-operandi t))
 
-;; Set frame title to the buffer name
-(setq-default frame-title-format '("%b - emacs"))
+(leaf paredit
+  :ensure t
+  :hook (cider-repl-mode-hook clojure-mode-hook emacs-lisp-mode-hook))
 
-;; Keep layout consistent
-(setq max-mini-window-height 1)
+(leaf perspective
+  :ensure t
+  :custom `((persp-mode-prefix-key . ,(kbd "C-x C-x"))
+            (persp-sort . 'access))
+  :global-minor-mode persp-mode)
 
-;; Kill buffers and windows
+(leaf pragmata-pro
+  :config (let ((default-font "PragmataPro Liga 12"))
+	    (add-to-list 'default-frame-alist `(font . ,default-font))
+	    (set-face-attribute 'default t :font default-font)))
+
+(leaf railwaycat
+  :when (and (eq system-type 'darwin) (display-graphic-p))
+  :custom ((mac-command-modifier . nil)
+           (mac-option-modifier . 'meta))
+  :global-minor-mode menu-bar-mode)
+
+(leaf restclient
+  :ensure t)
+
+(leaf smex
+  :ensure t
+  :bind ("M-x" . smex)
+  :custom (smex-prompt-string . ""))
+
+(leaf subword
+  :hook (cider-repl-mode-hook clojure-mode-hook python-mode-hook web-mode-hook))
+
+(leaf view
+  :bind (("C-v" . View-scroll-half-page-forward)
+         ("M-v" . View-scroll-half-page-backward)))
+
+(leaf vterm
+  :ensure t
+  :bind ("C-x RET" . vterm-other-window)
+  :custom ((vterm-always-compile-module . t)
+           (vterm-clear-scrollback-when-clearing . t))
+  :config (setq vterm-exit-functions
+                (lambda (buf _evt)
+                  (when buf (dp/kill-buffer-and-window)))))
+
+(leaf web-mode
+  :ensure t
+  :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
+  :custom ((web-mode-enable-auto-closing . t)
+           (web-mode-markup-indent-offset . 2)))
+
+(leaf whitespace
+  :custom ((whitespace-line-column . 80)
+           (whitespace-style . '(face trailing lines-tail tabs)))
+  :hook prog-mode-hook)
+
+(leaf work
+  :config
+  (leaf dockerfile-mode
+    :ensure t)
+  (leaf kubel
+    :ensure t)
+  (leaf yaml-mode
+    :ensure t))
+
+(leaf zoom
+  :ensure t
+  :custom (zoom-size . '(0.618 . 0.618))
+  :global-minor-mode zoom-mode)
+
 (defun dp/kill-buffer-and-window ()
   "Kill buffer and window without propagating any errors."
   (interactive)
   (ignore-errors (kill-buffer-and-window)))
 
-(require 'bind-key)
-(bind-key "C-x k" 'dp/kill-buffer-and-window)
-
-;; Collect garbage on your time, not on mine
-(require 'frame)
+(leaf dp
+  :bind ("C-x k" . dp/kill-buffer-and-window))
 
 (defun dp/garbage-collect ()
   "Collect garbage when the frame is known to have lost focus."
   (unless (frame-focus-state)
     (garbage-collect)))
 
-(add-function :after after-focus-change-function #'dp/garbage-collect)
+(leaf garbage
+  :config (add-function :after after-focus-change-function #'dp/garbage-collect))
 
 (provide 'init)
 
