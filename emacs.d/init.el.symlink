@@ -26,19 +26,146 @@
            (ring-bell-function . 'ignore))
   :setq ((frame-title-format . '("%b - emacs"))
          (kill-buffer-query-functions . nil))
-  :config (defalias 'yes-or-no-p 'y-or-n-p))
+  :config
+  (defalias 'yes-or-no-p 'y-or-n-p)
 
-(leaf autorevert
-  :global-minor-mode global-auto-revert-mode)
+  (leaf autorevert
+    :global-minor-mode global-auto-revert-mode)
 
-(leaf better-defaults
-  :ensure t
-  :require t)
+  (leaf better-defaults
+    :ensure t
+    :require t)
 
-(leaf blacken
-  :ensure t
-  :custom (blacken-only-if-project-is-blackened . t)
-  :hook python-mode-hook)
+  (leaf customize
+    :custom `(custom-file . ,(concat user-emacs-directory "custom.el"))
+    :config (load custom-file 'noerror))
+
+  (leaf default-text-scale
+    :ensure t
+    :bind (("C-M-+" . default-text-scale-increase)
+           ("C-M--" . default-text-scale-decrease)
+           ("C-M-0" . default-text-scale-reset)))
+
+  (leaf feebleline
+    :ensure t
+    :when (display-graphic-p)
+    :global-minor-mode feebleline-mode)
+
+  (leaf ido
+    :config
+    (setcar (nthcdr 0 ido-decorations) "")
+    (setcar (nthcdr 1 ido-decorations) ""))
+
+  (leaf initial-size
+    :when (display-graphic-p)
+    :config
+    (add-to-list 'default-frame-alist '(height . 50))
+    (add-to-list 'default-frame-alist '(width . 120)))
+
+  (leaf ligatures
+    :when (fboundp 'mac-auto-operator-composition-mode)
+    :global-minor-mode mac-auto-operator-composition-mode)
+
+  (leaf modus-operandi-theme
+    :ensure t
+    :config (load-theme 'modus-operandi t))
+
+  (leaf perspective
+    :ensure t
+    :custom `((persp-mode-prefix-key . ,(kbd "C-x C-x"))
+              (persp-sort . 'access))
+    :global-minor-mode persp-mode)
+
+  (leaf pragmata-pro
+    :config (let ((default-font "PragmataPro Liga 12"))
+	      (add-to-list 'default-frame-alist `(font . ,default-font))
+	      (set-face-attribute 'default t :font default-font)))
+
+  (leaf railwaycat
+    :when (and (eq system-type 'darwin) (display-graphic-p))
+    :custom ((mac-command-modifier . nil)
+             (mac-option-modifier . 'meta))
+    :global-minor-mode menu-bar-mode)
+
+  (leaf smex
+    :ensure t
+    :bind ("M-x" . smex)
+    :custom (smex-prompt-string . ""))
+
+  (leaf view
+    :bind (("C-v" . View-scroll-half-page-forward)
+           ("M-v" . View-scroll-half-page-backward)))
+
+  (leaf vterm
+    :ensure t
+    :bind ("C-x RET" . vterm-other-window)
+    :custom ((vterm-always-compile-module . t)
+             (vterm-clear-scrollback-when-clearing . t))
+    :config (setq vterm-exit-functions
+                  (lambda (buf _evt)
+                    (when buf (dp/kill-buffer-and-window)))))
+
+  (leaf zoom
+    :ensure t
+    :custom (zoom-size . '(0.618 . 0.618))
+    :global-minor-mode zoom-mode))
+
+(leaf general-programming
+  :config
+  (leaf company
+    :ensure t
+    :hook (prog-mode-hook cider-repl-mode-hook))
+
+  (leaf deadgrep
+    :ensure t
+    :bind ("C-c r" . deadgrep))
+
+  (leaf display-line-numbers
+    :hook prog-mode-hook)
+
+  (leaf dumb-jump
+    :ensure t
+    :custom (dumb-jump-prefer-searcher . 'rg)
+    :config (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+  (leaf editorconfig
+    :ensure t
+    :hook prog-mode-hook)
+
+  (leaf expand-region
+    :ensure t
+    :bind ("C-c w" . er/expand-region))
+
+  (leaf find-file-in-repository
+    :ensure t
+    :bind ("C-x M-f" . find-file-in-repository))
+
+  (leaf flycheck
+    :ensure t
+    :hook prog-mode-hook)
+
+  (leaf hideshow
+    :hook (prog-mode-hook . hs-minor-mode))
+
+  (leaf magit
+    :ensure t
+    :bind (("C-x g" . magit-status)
+           ("C-c g" . magit-file-dispatch)))
+
+  (leaf markdown-mode
+    :ensure t)
+
+  (leaf paredit
+    :ensure t
+    :hook (cider-repl-mode-hook clojure-mode-hook emacs-lisp-mode-hook))
+
+  (leaf subword
+    :hook prog-mode-hook)
+
+  (leaf whitespace
+    :custom ((whitespace-line-column . 80)
+             (whitespace-style . '(face trailing lines-tail tabs)))
+    :hook prog-mode-hook))
 
 (leaf clojure
   :config
@@ -59,147 +186,33 @@
     :require t
     :after clojure-mode))
 
-(leaf company
-  :ensure t
-  :hook (prog-mode-hook cider-repl-mode-hook))
-
-(leaf customize
-  :custom `(custom-file . ,(concat user-emacs-directory "custom.el"))
-  :config (load custom-file 'noerror))
-
-(leaf deadgrep
-  :ensure t
-  :bind ("C-c r" . deadgrep))
-
-(leaf default-text-scale
-  :ensure t
-  :bind (("C-M-+" . default-text-scale-increase)
-         ("C-M--" . default-text-scale-decrease)
-         ("C-M-0" . default-text-scale-reset)))
-
-(leaf display-line-numbers
-  :hook prog-mode-hook)
-
-(leaf dumb-jump
-  :ensure t
-  :custom (dumb-jump-prefer-searcher . 'rg)
-  :config (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-
-(leaf editorconfig
-  :ensure t
-  :hook prog-mode-hook)
-
-(leaf emmet-mode
-  :ensure t
-  :custom (emmet-preview-default . nil)
-  :bind (emmet-mode-keymap
-         ("C-c w" . nil))
-  :hook (web-mode-hook . emmet-mode))
-
-(leaf expand-region
-  :ensure t
-  :bind ("C-c w" . er/expand-region))
-
-(leaf feebleline
-  :ensure t
-  :when (display-graphic-p)
-  :global-minor-mode feebleline-mode)
-
-(leaf find-file-in-repository
-  :ensure t
-  :bind ("C-x M-f" . find-file-in-repository))
-
-(leaf flycheck
-  :ensure t
-  :hook prog-mode-hook)
-
-(leaf hideshow
-  :hook (prog-mode-hook . hs-minor-mode))
-
-(leaf ido
+(leaf python
   :config
-  (setcar (nthcdr 0 ido-decorations) "")
-  (setcar (nthcdr 1 ido-decorations) ""))
+  (leaf blacken
+    :ensure t
+    :custom (blacken-only-if-project-is-blackened . t)
+    :hook python-mode-hook))
 
-(leaf initial-size
-  :when (display-graphic-p)
+(leaf web-development
   :config
-  (add-to-list 'default-frame-alist '(height . 50))
-  (add-to-list 'default-frame-alist '(width . 120)))
+  (leaf emmet-mode
+    :ensure t
+    :custom (emmet-preview-default . nil)
+    :bind (emmet-mode-keymap
+           ("C-c w" . nil))
+    :hook (web-mode-hook . emmet-mode))
 
-(leaf ligatures
-  :when (fboundp 'mac-auto-operator-composition-mode)
-  :global-minor-mode mac-auto-operator-composition-mode)
+  (leaf restclient
+    :ensure t)
 
-(leaf magit
-  :ensure t
-  :bind (("C-x g" . magit-status)
-         ("C-c g" . magit-file-dispatch)))
-
-(leaf markdown-mode
-  :ensure t)
-
-(leaf modus-operandi-theme
-  :ensure t
-  :config (load-theme 'modus-operandi t))
-
-(leaf paredit
-  :ensure t
-  :hook (cider-repl-mode-hook clojure-mode-hook emacs-lisp-mode-hook))
-
-(leaf perspective
-  :ensure t
-  :custom `((persp-mode-prefix-key . ,(kbd "C-x C-x"))
-            (persp-sort . 'access))
-  :global-minor-mode persp-mode)
-
-(leaf pragmata-pro
-  :config (let ((default-font "PragmataPro Liga 12"))
-	    (add-to-list 'default-frame-alist `(font . ,default-font))
-	    (set-face-attribute 'default t :font default-font)))
-
-(leaf railwaycat
-  :when (and (eq system-type 'darwin) (display-graphic-p))
-  :custom ((mac-command-modifier . nil)
-           (mac-option-modifier . 'meta))
-  :global-minor-mode menu-bar-mode)
-
-(leaf restclient
-  :ensure t)
-
-(leaf smex
-  :ensure t
-  :bind ("M-x" . smex)
-  :custom (smex-prompt-string . ""))
-
-(leaf subword
-  :hook (cider-repl-mode-hook clojure-mode-hook python-mode-hook web-mode-hook))
-
-(leaf view
-  :bind (("C-v" . View-scroll-half-page-forward)
-         ("M-v" . View-scroll-half-page-backward)))
-
-(leaf vterm
-  :ensure t
-  :bind ("C-x RET" . vterm-other-window)
-  :custom ((vterm-always-compile-module . t)
-           (vterm-clear-scrollback-when-clearing . t))
-  :config (setq vterm-exit-functions
-                (lambda (buf _evt)
-                  (when buf (dp/kill-buffer-and-window)))))
-
-(leaf web-mode
-  :ensure t
-  :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
-  :custom ((web-mode-enable-auto-closing . t)
-           (web-mode-markup-indent-offset . 2)))
-
-(leaf whitespace
-  :custom ((whitespace-line-column . 80)
-           (whitespace-style . '(face trailing lines-tail tabs)))
-  :hook prog-mode-hook)
+  (leaf web-mode
+    :ensure t
+    :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
+    :custom ((web-mode-enable-auto-closing . t)
+             (web-mode-markup-indent-offset . 2))))
 
 (leaf work
+  :disabled t
   :config
   (leaf dockerfile-mode
     :ensure t)
@@ -207,11 +220,6 @@
     :ensure t)
   (leaf yaml-mode
     :ensure t))
-
-(leaf zoom
-  :ensure t
-  :custom (zoom-size . '(0.618 . 0.618))
-  :global-minor-mode zoom-mode)
 
 (defun dp/kill-buffer-and-window ()
   "Kill buffer and window without propagating any errors."
