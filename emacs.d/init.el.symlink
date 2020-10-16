@@ -27,7 +27,7 @@
   :setq ((frame-title-format . '("%b - emacs"))
          (kill-buffer-query-functions . nil))
   :config
-  (defalias 'yes-or-no-p 'y-or-n-p)
+  (fset 'yes-or-no-p 'y-or-n-p)
 
   (leaf autorevert
     :global-minor-mode global-auto-revert-mode)
