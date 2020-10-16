@@ -222,8 +222,10 @@
   :config
   (leaf dockerfile-mode
     :ensure t)
+
   (leaf kubel
     :ensure t)
+
   (leaf yaml-mode
     :ensure t))
 
