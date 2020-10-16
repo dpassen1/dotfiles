@@ -191,7 +191,13 @@
   (leaf blacken
     :ensure t
     :custom (blacken-only-if-project-is-blackened . t)
-    :hook python-mode-hook))
+    :hook python-mode-hook)
+
+  (leaf poetry
+    :ensure t)
+
+  (leaf python-pytest
+    :ensure t))
 
 (leaf web-development
   :config
