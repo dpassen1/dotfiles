@@ -171,6 +171,7 @@
   :config
   (leaf clojure-mode
     :custom (clojure-align-forms-automatically . t))
+
   (leaf cider
     :ensure t
     :after clojure-mode
@@ -181,6 +182,7 @@
     :config (when (fboundp 'clojure-project-dir)
               (setq cider-repl-history-file
                     (expand-file-name ".cider-repl-history" (clojure-project-dir)))))
+
   (leaf flycheck-clj-kondo
     :ensure t
     :require t
