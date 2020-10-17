@@ -170,7 +170,7 @@
 (leaf clojure
   :config
   (leaf clojure-mode
-    :custom ((clojure-align-forms-automatically . t)))
+    :custom (clojure-align-forms-automatically . t))
   (leaf cider
     :ensure t
     :after clojure-mode
