@@ -1,35 +1,39 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -o nounset
 set -o errexit
 
+declare -A dotfiles
+
+dotfiles=(
+    ["bin/all-git.sh"]="$HOME/.bin/all-git"
+    ["clojure/deps.edn"]="$HOME/.clojure/deps.edn"
+    ["emacs.d/early-init.el"]="$HOME/.emacs.d/early-init.el"
+    ["emacs.d/init.el"]="$HOME/.emacs.d/init.el"
+    ["gitconfig"]="$HOME/.gitconfig"
+    ["lein/profiles.clj"]="$HOME/.lein/profiles.clj"
+    ["tmux.conf"]="$HOME/.tmux.conf"
+    ["vimrc"]="$HOME/.vimrc"
+    ["zshenv"]="$HOME/.zshenv"
+    ["zshrc"]="$HOME/.zshrc"
+)
+
 function ensure_destination_exists {
     local dest="$1"
-    if [[ $dest != "." ]]; then
-        dest="$HOME/.$dest"
+    if [[ $dest != "$HOME" ]]; then
         echo "  Creating destination directory: $dest"
         mkdir -p "$dest"
     fi
 }
 
-function create_symbolic_link {
-    local path="$1"
-    local src="$PWD/$path"
-    local dest_path=${path/%\.symlink/}
-    local dest="$HOME/.$dest_path"
-    ln -fs "$src" "$dest"
-}
-
 function link_dotfiles {
-    find . -iname "*.symlink" | while read -r link; do
-        echo "Linking $link"
+    for source destination in ${(kv)dotfiles}; do
+        echo "Linking $source to $destination"
 
-        local relpath=${link/#\.\//}
-        local dir
-        dir=$(dirname "$relpath")
-
+        local dir=${destination:h}
         ensure_destination_exists "$dir"
-        create_symbolic_link "$relpath"
+
+        ln -fs "${source:a}" "$destination"
     done
 }
 

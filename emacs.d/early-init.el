@@ -1,4 +1,4 @@
-;;; early-init.el --- Early Initialization code ;;; -*- mode: Emacs-Lisp; lexical-binding: t;-*-
+;;; early-init.el --- Early Initialization code ;;; -*- lexical-binding: t;-*-
 ;;; Commentary:
 
 ;;; Code:

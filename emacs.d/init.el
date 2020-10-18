@@ -1,4 +1,4 @@
-;;; init.el --- Initialization code ;;; -*- mode: Emacs-Lisp; lexical-binding: t;-*-
+;;; init.el --- Initialization code ;;; -*- lexical-binding: t;-*-
 ;;; Commentary:
 
 ;;; Code:
