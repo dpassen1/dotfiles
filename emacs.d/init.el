@@ -196,9 +196,6 @@
     :hook python-mode-hook)
 
   (leaf poetry
-    :ensure t)
-
-  (leaf python-pytest
     :ensure t))
 
 (leaf web-development
