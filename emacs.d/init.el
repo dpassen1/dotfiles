@@ -176,7 +176,6 @@
 
   (leaf cider
     :ensure t
-    :after clojure-mode
     :custom ((cider-prompt-for-symbol . nil)
              (cider-repl-display-help-banner . nil)
              (cider-save-file-on-load . t)
