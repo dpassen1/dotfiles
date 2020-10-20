@@ -72,11 +72,11 @@
 
   (leaf perspective
     :ensure t
+    :init (require 'ibuffer)
     :bind ("C-x C-b" . persp-ibuffer)
     :custom `((persp-mode-prefix-key . ,(kbd "C-x C-x"))
               (persp-sort . 'access))
-    :global-minor-mode persp-mode
-    :init (require 'ibuffer))
+    :global-minor-mode persp-mode)
 
   (leaf pragmata-pro
     :config (let ((default-font "PragmataPro Liga 12"))
@@ -229,19 +229,19 @@
   (leaf yaml-mode
     :ensure t))
 
-(defun dp/kill-buffer-and-window ()
-  "Kill buffer and window without propagating any errors."
-  (interactive)
-  (ignore-errors (kill-buffer-and-window)))
-
 (defun dp/garbage-collect ()
   "Collect garbage when the frame is known to have lost focus."
   (unless (frame-focus-state)
     (garbage-collect)))
 
+(defun dp/kill-buffer-and-window ()
+  "Kill buffer and window without propagating any errors."
+  (interactive)
+  (ignore-errors (kill-buffer-and-window)))
+
 (leaf dp
-  :bind ("C-x k" . dp/kill-buffer-and-window)
-  :init (add-function :after after-focus-change-function #'dp/garbage-collect))
+  :init (add-function :after after-focus-change-function #'dp/garbage-collect)
+  :bind ("C-x k" . dp/kill-buffer-and-window))
 
 (provide 'init)
 
