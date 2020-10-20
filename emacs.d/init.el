@@ -72,9 +72,11 @@
 
   (leaf perspective
     :ensure t
+    :bind ("C-x C-b" . persp-ibuffer)
     :custom `((persp-mode-prefix-key . ,(kbd "C-x C-x"))
               (persp-sort . 'access))
-    :global-minor-mode persp-mode)
+    :global-minor-mode persp-mode
+    :init (require 'ibuffer))
 
   (leaf pragmata-pro
     :config (let ((default-font "PragmataPro Liga 12"))
