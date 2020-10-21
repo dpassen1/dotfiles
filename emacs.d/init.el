@@ -76,7 +76,7 @@
     :init (require 'ibuffer)
     :bind ("C-x C-b" . persp-ibuffer)
     :custom `((persp-mode-prefix-key . ,(kbd "C-x C-x"))
-              (persp-sort . 'access))
+              (persp-sort . 'created))
     :global-minor-mode persp-mode)
 
   (leaf pragmata-pro
