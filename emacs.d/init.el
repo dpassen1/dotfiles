@@ -52,6 +52,7 @@
     :global-minor-mode feebleline-mode)
 
   (leaf ido
+    :defvar ido-decorations
     :config
     (setcar (nthcdr 0 ido-decorations) "")
     (setcar (nthcdr 1 ido-decorations) ""))
@@ -101,6 +102,7 @@
   (leaf vterm
     :ensure t
     :bind ("C-x RET" . vterm-other-window)
+    :defvar vterm-exit-functions
     :custom ((vterm-always-compile-module . t)
              (vterm-clear-scrollback-when-clearing . t))
     :config (setq vterm-exit-functions
@@ -180,9 +182,12 @@
              (cider-repl-display-help-banner . nil)
              (cider-save-file-on-load . t)
              (cider-use-fringe-indicators . nil))
-    :config (when (fboundp 'clojure-project-dir)
-              (setq cider-repl-history-file
-                    (expand-file-name ".cider-repl-history" (clojure-project-dir)))))
+    :defvar cider-repl-history-file
+    :defun (clojure-project-dir . clojure-mode)
+    :defer-config (setq cider-repl-history-file
+                        (expand-file-name
+                         ".cider-repl-history"
+                         (clojure-project-dir))))
 
   (leaf flycheck-clj-kondo
     :ensure t
