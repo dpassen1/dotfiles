@@ -109,6 +109,9 @@
                   (lambda (buf _evt)
                     (when buf (dp/kill-buffer-and-window)))))
 
+  (leaf with-editor
+    :hook (vterm-mode-hook . with-editor-export-editor))
+
   (leaf zoom
     :ensure t
     :custom (zoom-size . '(0.618 . 0.618))
