@@ -110,6 +110,7 @@
                     (when buf (dp/kill-buffer-and-window)))))
 
   (leaf with-editor
+    :ensure t
     :hook (vterm-mode-hook . with-editor-export-editor))
 
   (leaf zoom
@@ -177,6 +178,7 @@
 (leaf clojure
   :config
   (leaf clojure-mode
+    :ensure t
     :custom (clojure-align-forms-automatically . t))
 
   (leaf cider
