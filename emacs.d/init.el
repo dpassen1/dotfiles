@@ -101,7 +101,9 @@
 
   (leaf vterm
     :ensure t
-    :bind ("C-x RET" . vterm-other-window)
+    :bind (("C-x RET" . vterm-other-window)
+           (:vterm-mode-map
+            ("C-]" . vterm--self-insert)))
     :defvar vterm-exit-functions
     :custom ((vterm-always-compile-module . t)
              (vterm-clear-scrollback-when-clearing . t))
