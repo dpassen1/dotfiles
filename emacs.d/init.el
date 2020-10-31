@@ -57,6 +57,12 @@
     (setcar (nthcdr 0 ido-decorations) "")
     (setcar (nthcdr 1 ido-decorations) ""))
 
+  (leaf ido-vertical-mode
+    :ensure t
+    :when (display-graphic-p)
+    :custom (ido-vertical-define-keys . 'C-n-C-p-up-and-down)
+    :global-minor-mode ido-vertical-mode)
+
   (leaf initial-size
     :when (display-graphic-p)
     :config
@@ -66,6 +72,14 @@
   (leaf ligatures
     :when (fboundp 'mac-auto-operator-composition-mode)
     :global-minor-mode mac-auto-operator-composition-mode)
+
+  (leaf mini-frame
+    :ensure t
+    :when (display-graphic-p)
+    :custom (mini-frame-show-parameters . '((top . 10)
+                                            (width . 0.7)
+                                            (left . 0.5)))
+    :global-minor-mode mini-frame-mode)
 
   (leaf modus-operandi-theme
     :ensure t
