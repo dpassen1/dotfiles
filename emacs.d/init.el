@@ -21,7 +21,8 @@
     :ensure t))
 
 (leaf emacs
-  :custom ((confirm-kill-processes . nil)
+  :custom ((column-number-mode . t)
+           (confirm-kill-processes . nil)
            (indent-tabs-mode . nil)
            (inhibit-startup-screen . t)
            (max-mini-window-height . 1)
