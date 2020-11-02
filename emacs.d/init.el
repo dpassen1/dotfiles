@@ -15,7 +15,10 @@
 
   (leaf leaf-keywords
     :ensure t
-    :config (leaf-keywords-init)))
+    :config (leaf-keywords-init))
+
+  (leaf diminish
+    :ensure t))
 
 (leaf emacs
   :custom ((confirm-kill-processes . nil)
@@ -117,6 +120,7 @@
 
   (leaf zoom
     :ensure t
+    :diminish t
     :custom (zoom-size . '(0.618 . 0.618))
     :global-minor-mode zoom-mode))
 
@@ -124,6 +128,7 @@
   :config
   (leaf company
     :ensure t
+    :diminish t
     :hook (prog-mode-hook cider-repl-mode-hook))
 
   (leaf deadgrep
@@ -140,6 +145,7 @@
 
   (leaf editorconfig
     :ensure t
+    :diminish t
     :hook prog-mode-hook)
 
   (leaf expand-region
@@ -152,9 +158,11 @@
 
   (leaf flycheck
     :ensure t
+    :diminish t
     :hook prog-mode-hook)
 
   (leaf hideshow
+    :diminish hs-minor-mode
     :hook (prog-mode-hook . hs-minor-mode))
 
   (leaf magit
@@ -167,12 +175,15 @@
 
   (leaf paredit
     :ensure t
+    :diminish t
     :hook (cider-repl-mode-hook clojure-mode-hook emacs-lisp-mode-hook))
 
   (leaf subword
+    :diminish t
     :hook prog-mode-hook)
 
   (leaf whitespace
+    :diminish t
     :custom ((whitespace-line-column . 80)
              (whitespace-style . '(face trailing lines-tail tabs)))
     :hook prog-mode-hook))
@@ -185,7 +196,9 @@
 
   (leaf cider
     :ensure t
-    :custom ((cider-prompt-for-symbol . nil)
+    :diminish cider-auto-test-mode
+    :custom ((cider-mode-line-show-connection . nil)
+             (cider-prompt-for-symbol . nil)
              (cider-repl-display-help-banner . nil)
              (cider-save-file-on-load . t)
              (cider-use-fringe-indicators . nil))
@@ -205,6 +218,7 @@
   :config
   (leaf blacken
     :ensure t
+    :diminish t
     :custom (blacken-only-if-project-is-blackened . t)
     :hook python-mode-hook)
 
