@@ -29,7 +29,8 @@
            (read-quoted-char-radix . 16)
            (ring-bell-function . 'ignore))
   :setq ((frame-title-format . '("%b - emacs"))
-         (kill-buffer-query-functions . nil))
+         (kill-buffer-query-functions . nil)
+         (message-truncate-lines . t))
   :config
   (fset 'yes-or-no-p 'y-or-n-p)
 
