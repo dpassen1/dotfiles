@@ -49,11 +49,6 @@
            ("C-M--" . default-text-scale-decrease)
            ("C-M-0" . default-text-scale-reset)))
 
-  (leaf feebleline
-    :ensure t
-    :when (display-graphic-p)
-    :global-minor-mode feebleline-mode)
-
   (leaf ido
     :defvar ido-decorations
     :config
