@@ -33,6 +33,9 @@
   :config
   (fset 'yes-or-no-p 'y-or-n-p)
 
+  (leaf abbrev
+    :blackout t)
+
   (leaf autorevert
     :global-minor-mode global-auto-revert-mode)
 
