@@ -48,6 +48,7 @@ brew "wget"
 brew "yarn"
 brew "zsh"
 
+brew "borkdude/brew/babashka"
 brew "borkdude/brew/clj-kondo"
 brew "borkdude/brew/jet"
 brew "clojure/tools/clojure"
