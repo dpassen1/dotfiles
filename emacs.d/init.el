@@ -240,18 +240,6 @@
     :custom ((web-mode-enable-auto-closing . t)
              (web-mode-markup-indent-offset . 2))))
 
-(leaf work
-  :disabled t
-  :config
-  (leaf dockerfile-mode
-    :ensure t)
-
-  (leaf kubel
-    :ensure t)
-
-  (leaf yaml-mode
-    :ensure t))
-
 (provide 'init)
 
 ;;; init.el ends here
