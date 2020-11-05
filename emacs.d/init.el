@@ -109,10 +109,7 @@
             ("C-]" . vterm--self-insert)))
     :defvar vterm-exit-functions
     :custom ((vterm-always-compile-module . t)
-             (vterm-clear-scrollback-when-clearing . t))
-    :config (setq vterm-exit-functions
-                  (lambda (buf _evt)
-                    (when buf (dp/kill-buffer-and-window)))))
+             (vterm-clear-scrollback-when-clearing . t)))
 
   (leaf with-editor
     :ensure t
@@ -254,20 +251,6 @@
 
   (leaf yaml-mode
     :ensure t))
-
-(defun dp/garbage-collect ()
-  "Collect garbage when the frame is known to have lost focus."
-  (unless (frame-focus-state)
-    (garbage-collect)))
-
-(defun dp/kill-buffer-and-window ()
-  "Kill buffer and window without propagating any errors."
-  (interactive)
-  (ignore-errors (kill-buffer-and-window)))
-
-(leaf dp
-  :init (add-function :after after-focus-change-function #'dp/garbage-collect)
-  :bind ("C-x k" . dp/kill-buffer-and-window))
 
 (provide 'init)
 
