@@ -83,9 +83,10 @@
     :global-minor-mode persp-mode)
 
   (leaf pragmata-pro
-    :config (let ((default-font "PragmataPro Liga 12"))
-              (add-to-list 'default-frame-alist `(font . ,default-font))
-              (set-face-attribute 'default t :font default-font)))
+    :config
+    (let ((default-font "PragmataPro Liga 12"))
+      (add-to-list 'default-frame-alist `(font . ,default-font))
+      (set-face-attribute 'default t :font default-font)))
 
   (leaf railwaycat
     :when (and (eq system-type 'darwin) (display-graphic-p))
