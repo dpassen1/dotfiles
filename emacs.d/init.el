@@ -118,7 +118,7 @@
     :ensure t
     :blackout t
     :custom (zoom-size . '(0.618 . 0.618))
-    :global-minor-mode zoom-mode))
+    :global-minor-mode t))
 
 (leaf general-programming
   :config
