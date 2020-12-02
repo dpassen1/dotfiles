@@ -37,6 +37,13 @@
   (leaf abbrev
     :blackout t)
 
+  (leaf amx
+    :ensure t
+    :custom ((amx-ignored-command-matchers . nil)
+             (amx-prompt-string . "")
+             (amx-show-key-bindings . nil))
+    :global-minor-mode t)
+
   (leaf autorevert
     :global-minor-mode global-auto-revert-mode)
 
@@ -56,9 +63,15 @@
 
   (leaf ido
     :defvar ido-decorations
+    :defun ido-everywhere
     :config
     (setcar (nthcdr 0 ido-decorations) "")
-    (setcar (nthcdr 1 ido-decorations) ""))
+    (setcar (nthcdr 1 ido-decorations) "")
+    (ido-everywhere))
+
+  (leaf ido-completing-read+
+    :ensure t
+    :global-minor-mode ido-ubiquitous-mode)
 
   (leaf initial-size
     :when (display-graphic-p)
@@ -93,11 +106,6 @@
     :custom ((mac-command-modifier . nil)
              (mac-option-modifier . 'meta))
     :global-minor-mode menu-bar-mode)
-
-  (leaf smex
-    :ensure t
-    :bind ("M-x" . smex)
-    :custom (smex-prompt-string . ""))
 
   (leaf view
     :bind (("C-v" . View-scroll-half-page-forward)
