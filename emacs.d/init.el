@@ -25,12 +25,15 @@
            (confirm-kill-processes . nil)
            (indent-tabs-mode . nil)
            (inhibit-startup-screen . t)
+           (load-prefer-newer . t)
            (max-mini-window-height . 1)
            (read-quoted-char-radix . 16)
+           (require-final-newline . t)
            (ring-bell-function . 'ignore))
   :setq ((frame-title-format . '("%b - emacs"))
          (kill-buffer-query-functions . nil)
          (message-truncate-lines . t))
+  :bind ("M-z" . zap-up-to-char)
   :config
   (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -47,10 +50,6 @@
   (leaf autorevert
     :global-minor-mode global-auto-revert-mode)
 
-  (leaf better-defaults
-    :ensure t
-    :require t)
-
   (leaf customize
     :custom `(custom-file . ,(concat user-emacs-directory "custom.el"))
     :config (load custom-file 'noerror))
@@ -64,10 +63,12 @@
   (leaf ido
     :defvar ido-decorations
     :defun ido-everywhere
+    :custom (ido-enable-flex-matching . t)
     :config
     (setcar (nthcdr 0 ido-decorations) "")
     (setcar (nthcdr 1 ido-decorations) "")
-    (ido-everywhere))
+    (ido-everywhere)
+    :global-minor-mode t)
 
   (leaf ido-completing-read+
     :ensure t
@@ -106,6 +107,12 @@
     :custom ((mac-command-modifier . nil)
              (mac-option-modifier . 'meta))
     :global-minor-mode menu-bar-mode)
+
+  (leaf save-place
+    :global-minor-mode t)
+
+  (leaf uniquify
+    :custom (uniquify-buffer-name-style . 'forward))
 
   (leaf view
     :bind (("C-v" . View-scroll-half-page-forward)
