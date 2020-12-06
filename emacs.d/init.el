@@ -205,7 +205,8 @@
   (leaf cider
     :ensure t
     :blackout cider-auto-test-mode
-    :custom ((cider-mode-line-show-connection . nil)
+    :custom ((cider-font-lock-dynamically . nil)
+             (cider-mode-line-show-connection . nil)
              (cider-prompt-for-symbol . nil)
              (cider-repl-display-help-banner . nil)
              (cider-save-file-on-load . t)
