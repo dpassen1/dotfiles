@@ -40,13 +40,6 @@
   (leaf abbrev
     :blackout t)
 
-  (leaf amx
-    :ensure t
-    :custom ((amx-ignored-command-matchers . nil)
-             (amx-prompt-string . "")
-             (amx-show-key-bindings . nil))
-    :global-minor-mode t)
-
   (leaf autorevert
     :global-minor-mode global-auto-revert-mode)
 
@@ -60,20 +53,6 @@
            ("C-M--" . default-text-scale-decrease)
            ("C-M-0" . default-text-scale-reset)))
 
-  (leaf ido
-    :defvar ido-decorations
-    :defun ido-everywhere
-    :custom (ido-enable-flex-matching . t)
-    :config
-    (setcar (nthcdr 0 ido-decorations) "")
-    (setcar (nthcdr 1 ido-decorations) "")
-    (ido-everywhere)
-    :global-minor-mode t)
-
-  (leaf ido-completing-read+
-    :ensure t
-    :global-minor-mode ido-ubiquitous-mode)
-
   (leaf initial-size
     :when (display-graphic-p)
     :config
@@ -83,6 +62,13 @@
   (leaf ligatures
     :when (fboundp 'mac-auto-operator-composition-mode)
     :global-minor-mode mac-auto-operator-composition-mode)
+
+  (leaf mini-frame
+    :ensure t
+    :custom (mini-frame-show-parameters . '((top . 10)
+                                            (width . 0.7)
+                                            (left . 0.5)))
+    :global-minor-mode t)
 
   (leaf modus-operandi-theme
     :ensure t
@@ -108,7 +94,21 @@
              (mac-option-modifier . 'meta))
     :global-minor-mode menu-bar-mode)
 
+  (leaf rotate
+    :ensure t
+    :bind   (("C-x M-r l" . rotate-layout)
+             ("C-x M-r w" . rotate-window)))
+
   (leaf save-place
+    :global-minor-mode t)
+
+  (leaf selectrum
+    :ensure t
+    :config
+    (leaf selectrum-prescient
+      :ensure t
+      :config (prescient-persist-mode)
+      :global-minor-mode t)
     :global-minor-mode t)
 
   (leaf uniquify
@@ -127,13 +127,7 @@
 
   (leaf with-editor
     :ensure t
-    :hook (vterm-mode-hook . with-editor-export-editor))
-
-  (leaf zoom
-    :ensure t
-    :blackout t
-    :custom (zoom-size . '(0.618 . 0.618))
-    :global-minor-mode t))
+    :hook (vterm-mode-hook . with-editor-export-editor)))
 
 (leaf general-programming
   :config
