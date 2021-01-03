@@ -15,6 +15,7 @@ setopt appendhistory
 setopt share_history
 
 setopt interactivecomments
+setopt no_auto_remove_slash
 
 bindkey -e
 bindkey '^R' history-incremental-search-backward
