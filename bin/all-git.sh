@@ -3,7 +3,7 @@
 set -o nounset
 set -o errexit
 
-find . -maxdepth 1 -type d | sort -f | while read -r dir; do
+fd -td -d1 | sort -f | while read -r dir; do
     if [ -d "$dir/.git" ]; then
         basename "${dir%/}"
         (cd "$dir" && git "$@")
