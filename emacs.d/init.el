@@ -248,7 +248,7 @@
 
   (leaf web-mode
     :ensure t
-    :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css")
+    :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css\\'")
     :custom ((web-mode-enable-auto-closing . t)
              (web-mode-markup-indent-offset . 2))))
 
