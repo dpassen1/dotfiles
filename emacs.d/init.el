@@ -48,6 +48,7 @@
     :global-minor-mode t)
 
   (leaf autorevert
+    :custom (auto-revert-verbose . nil)
     :global-minor-mode global-auto-revert-mode)
 
   (leaf customize
