@@ -182,6 +182,11 @@
   (leaf markdown-mode
     :ensure t)
 
+  (leaf makefile-executor
+    :ensure t
+    :blackout makefile-executor-mode
+    :hook makefile-mode-hook)
+
   (leaf paredit
     :ensure t
     :blackout t
