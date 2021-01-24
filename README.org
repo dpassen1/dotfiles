@@ -1,0 +1,3 @@
+# -*- coding: utf-8 -*-
+* dotfiles
+Everyone else is doing it
