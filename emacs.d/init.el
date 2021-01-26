@@ -252,6 +252,10 @@
   (leaf restclient
     :ensure t)
 
+  (leaf typescript-mode
+    :ensure t
+    :mode ("\\.tsx?\\'"))
+
   (leaf web-mode
     :ensure t
     :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css\\'")
