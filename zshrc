@@ -5,7 +5,7 @@ alias mg='mg -n'
 alias view='mg -R'
 
 emacs() {
-    /usr/bin/env emacs "$@" & disown
+    /usr/bin/env emacs "$@" &!
 }
 
 HISTFILE=~/.histfile
