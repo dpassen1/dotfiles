@@ -53,6 +53,7 @@ brew "zsh"
 brew "borkdude/brew/babashka"
 brew "borkdude/brew/clj-kondo"
 brew "borkdude/brew/jet"
+brew "borkdude/brew/puget"
 brew "clojure/tools/clojure"
 brew "devlocker/tap/tychus"
 
