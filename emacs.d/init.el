@@ -200,7 +200,20 @@
     :blackout t
     :custom ((whitespace-line-column . 80)
              (whitespace-style . '(face trailing lines-tail tabs)))
-    :hook prog-mode-hook))
+    :hook prog-mode-hook)
+
+  (leaf yasnippet
+    :ensure t
+    :blackout yas-minor-mode
+    :commands (yas-maybe-expand)
+    :hook (prog-mode-hook . yas-minor-mode)
+    :bind (:yas-minor-mode-map
+           ("TAB" . nil)
+           ("<tab>" . nil)
+           ("C-c e" . yas-expand))
+    :config
+    (leaf yasnippet-snippets
+      :ensure t)))
 
 (leaf clojure
   :config
