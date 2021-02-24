@@ -196,6 +196,18 @@
     :blackout t
     :hook prog-mode-hook)
 
+  (leaf tree-sitter
+    :ensure t
+    :config
+    (leaf tree-sitter-langs
+      :ensure t
+      :after tree-sitter
+      :require t
+      :defvar tree-sitter-major-mode-language-alist
+      :config
+      (tree-sitter-require 'tsx)
+      (add-to-list 'tree-sitter-major-mode-language-alist '(typescript-tsx-mode . tsx))))
+
   (leaf whitespace
     :blackout t
     :custom ((whitespace-line-column . 80)
@@ -254,7 +266,14 @@
 
   (leaf typescript-mode
     :ensure t
-    :mode ("\\.tsx?\\'"))
+    :mode ("\\.ts\\'")
+    :init
+    (define-derived-mode typescript-tsx-mode typescript-mode "TSX"
+      "Major mode for editing TSX files.
+
+Refer to Typescript documentation for syntactic differences between normal and TSX
+variants of Typescript.")
+    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-tsx-mode)))
 
   (leaf web-mode
     :ensure t
