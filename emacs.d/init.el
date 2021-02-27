@@ -5,8 +5,7 @@
 
 (eval-and-compile
   (customize-set-variable
-   'package-archives '(("org" . "https://orgmode.org/elpa/")
-                       ("melpa" . "https://melpa.org/packages/")
+   'package-archives '(("melpa" . "https://melpa.org/packages/")
                        ("gnu" . "https://elpa.gnu.org/packages/")))
   (package-initialize)
   (unless (package-installed-p 'leaf)
@@ -36,9 +35,6 @@
   :bind ("M-z" . zap-up-to-char)
   :config
   (fset 'yes-or-no-p 'y-or-n-p)
-
-  (leaf abbrev
-    :blackout t)
 
   (leaf amx
     :ensure t
@@ -181,11 +177,6 @@
 
   (leaf markdown-mode
     :ensure t)
-
-  (leaf makefile-executor
-    :ensure t
-    :blackout makefile-executor-mode
-    :hook makefile-mode-hook)
 
   (leaf paredit
     :ensure t
