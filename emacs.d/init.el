@@ -159,7 +159,8 @@
 
   (leaf find-file-in-repository
     :ensure t
-    :bind ("C-x M-f" . find-file-in-repository))
+    :bind ("C-x M-f" . find-file-in-repository)
+    :custom (ffir-prompt . "Find file: "))
 
   (leaf flycheck
     :ensure t
