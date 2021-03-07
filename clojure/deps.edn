@@ -11,5 +11,5 @@
    :main-opts ["-m" "depot.outdated.main"]}
   :new
   {:extra-deps
-   {seancorfield/clj-new {:mvn/version "1.1.234"}}
+   {seancorfield/clj-new {:mvn/version "1.1.264"}}
    :main-opts ["-m" "clj-new.create"]}}}
