@@ -81,9 +81,10 @@
     :when (fboundp 'mac-auto-operator-composition-mode)
     :global-minor-mode mac-auto-operator-composition-mode)
 
-  (leaf modus-operandi-theme
+  (leaf modus-themes
     :ensure t
-    :config (load-theme 'modus-operandi t))
+    :init (modus-themes-load-themes)
+    :config (modus-themes-load-operandi))
 
   (leaf perspective
     :ensure t
