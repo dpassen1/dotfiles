@@ -85,10 +85,9 @@
     :ensure t
     :init (modus-themes-load-themes)
     :config
-    (let ((appearance (plist-get (mac-application-state) :appearance)))
-      (cond
-       ((string-equal "NSAppearanceNameAqua" appearance) (modus-themes-load-operandi))
-       ((string-equal "NSAppearanceNameDarkAqua" appearance) (modus-themes-load-vivendi)))))
+    (pcase (plist-get (mac-application-state) :appearance)
+      ("NSAppearanceNameAqua" (modus-themes-load-operandi))
+      ("NSAppearanceNameDarkAqua" (modus-themes-load-vivendi))))
 
   (leaf perspective
     :ensure t
