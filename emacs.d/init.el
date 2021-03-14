@@ -119,16 +119,16 @@
     :bind (("C-v" . View-scroll-half-page-forward)
            ("M-v" . View-scroll-half-page-backward)))
 
-  (leaf vterm
-    :ensure t
-    :bind ("C-x RET" . vterm-other-window)
-    :defvar vterm-exit-functions
-    :custom ((vterm-always-compile-module . t)
-             (vterm-clear-scrollback-when-clearing . t)))
-
   (leaf with-editor
     :ensure t
-    :hook (vterm-mode-hook . with-editor-export-editor))
+    :hook (vterm-mode-hook . with-editor-export-editor)
+    :init
+    (leaf vterm
+      :ensure t
+      :bind ("C-x RET" . vterm-other-window)
+      :defvar vterm-exit-functions
+      :custom ((vterm-always-compile-module . t)
+               (vterm-clear-scrollback-when-clearing . t))))
 
   (leaf zoom
     :ensure t
