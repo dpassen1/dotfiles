@@ -61,10 +61,9 @@
     :defvar ido-decorations
     :defun ido-everywhere
     :custom (ido-enable-flex-matching . t)
-    :config
-    (setcar (nthcdr 0 ido-decorations) "")
-    (setcar (nthcdr 1 ido-decorations) "")
-    (ido-everywhere)
+    :setf (((nth 0 ido-decorations) . "")
+           ((nth 1 ido-decorations) . ""))
+    :config (ido-everywhere)
     :global-minor-mode t)
 
   (leaf ido-completing-read+
