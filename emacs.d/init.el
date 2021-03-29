@@ -125,7 +125,6 @@
     (leaf vterm
       :ensure t
       :bind ("C-x RET" . vterm-other-window)
-      :defvar vterm-exit-functions
       :custom ((vterm-always-compile-module . t)
                (vterm-clear-scrollback-when-clearing . t))))
 
