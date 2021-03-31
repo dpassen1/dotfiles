@@ -246,13 +246,9 @@
   (leaf restclient
     :ensure t)
 
-  (leaf typescript-mode
-    :ensure t
-    :mode ("\\.tsx?\\'"))
-
   (leaf web-mode
     :ensure t
-    :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.css\\'")
+    :mode ("\\.html?\\'" "\\.jsx?\\'" "\\.tsx?\\'" "\\.css\\'")
     :custom ((web-mode-enable-auto-closing . t)
              (web-mode-markup-indent-offset . 2))))
 
