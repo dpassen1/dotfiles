@@ -86,7 +86,8 @@
     :config
     (pcase (plist-get (mac-application-state) :appearance)
       ("NSAppearanceNameAqua" (modus-themes-load-operandi))
-      ("NSAppearanceNameDarkAqua" (modus-themes-load-vivendi))))
+      ("NSAppearanceNameDarkAqua" (modus-themes-load-vivendi)))
+    :hook (mac-effective-appearance-change-hook . modus-themes-toggle))
 
   (leaf perspective
     :ensure t
