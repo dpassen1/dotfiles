@@ -76,9 +76,6 @@
     (add-to-list 'default-frame-alist '(height . 50))
     (add-to-list 'default-frame-alist '(width . 120)))
 
-  (leaf ligatures
-    :global-minor-mode mac-auto-operator-composition-mode)
-
   (leaf modus-themes
     :ensure t
     :init (modus-themes-load-themes)
@@ -106,7 +103,7 @@
     :when (display-graphic-p)
     :custom ((mac-command-modifier . nil)
              (mac-option-modifier . 'meta))
-    :global-minor-mode menu-bar-mode)
+    :global-minor-mode (menu-bar-mode mac-auto-operator-composition-mode))
 
   (leaf save-place
     :global-minor-mode t)
