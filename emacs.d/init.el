@@ -77,7 +77,6 @@
     (add-to-list 'default-frame-alist '(width . 120)))
 
   (leaf ligatures
-    :when (fboundp 'mac-auto-operator-composition-mode)
     :global-minor-mode mac-auto-operator-composition-mode)
 
   (leaf modus-themes
@@ -104,7 +103,7 @@
       (set-face-attribute 'default t :font default-font)))
 
   (leaf railwaycat
-    :when (and (eq system-type 'darwin) (display-graphic-p))
+    :when (display-graphic-p)
     :custom ((mac-command-modifier . nil)
              (mac-option-modifier . 'meta))
     :global-minor-mode menu-bar-mode)
