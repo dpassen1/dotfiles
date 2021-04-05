@@ -166,6 +166,9 @@
     :blackout t
     :hook prog-mode-hook)
 
+  (leaf git-link
+    :ensure t)
+
   (leaf hideshow
     :blackout hs-minor-mode
     :hook (prog-mode-hook . hs-minor-mode))
