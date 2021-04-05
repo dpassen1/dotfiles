@@ -169,6 +169,9 @@
   (leaf git-link
     :ensure t)
 
+  (leaf git-timemachine
+    :ensure t)
+
   (leaf hideshow
     :blackout hs-minor-mode
     :hook (prog-mode-hook . hs-minor-mode))
