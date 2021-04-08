@@ -176,6 +176,9 @@
     :blackout hs-minor-mode
     :hook (prog-mode-hook . hs-minor-mode))
 
+  (leaf just-mode
+    :ensure t)
+
   (leaf magit
     :ensure t
     :bind (("C-x g" . magit-status)
