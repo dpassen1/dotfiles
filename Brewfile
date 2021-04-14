@@ -57,5 +57,5 @@ brew "borkdude/brew/puget"
 brew "clojure/tools/clojure"
 brew "devlocker/tap/tychus"
 
-cask "adoptopenjdk8"
+cask "adoptopenjdk11"
 cask "emacs-mac"
