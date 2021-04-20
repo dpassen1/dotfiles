@@ -59,3 +59,4 @@ brew "devlocker/tap/tychus"
 
 cask "adoptopenjdk11"
 cask "emacs-mac"
+cask "mactex-no-gui"
