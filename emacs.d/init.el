@@ -152,6 +152,9 @@
     :blackout t
     :hook prog-mode-hook)
 
+  (leaf eldoc
+    :blackout t)
+
   (leaf expand-region
     :ensure t
     :bind ("C-c w" . er/expand-region))
