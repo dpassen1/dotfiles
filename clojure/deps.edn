@@ -9,6 +9,9 @@
   {:extra-deps
    {seancorfield/clj-new {:mvn/version "1.1.297"}}
    :exec-fn clj-new/create}
+  :nop
+  {:extra-deps
+   {org.slf4j/slf4j-nop {:mvn/version "1.7.30"}}}
   :outdated
   {:extra-deps
    {olical/depot {:mvn/version "2.2.0"}}
