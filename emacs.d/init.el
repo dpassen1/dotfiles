@@ -233,9 +233,9 @@
     :require t
     :after clojure-mode)
 
-  (leaf zprint-mode
+  (leaf zprint-format
     :ensure t
-    :blackout t))
+    :blackout zprint-format-on-save-mode))
 
 (leaf python
   :config
